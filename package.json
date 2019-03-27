@@ -1,6 +1,6 @@
 {
   "name": "capacitor-intercom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Enable intercom features for Capacitor",
   "cordova": {
     "id": "cordova-plugin-intercom-capacitor",
