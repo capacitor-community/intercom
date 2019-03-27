@@ -1,0 +1,34 @@
+{
+  "name": "capacitor-intercom",
+  "version": "0.0.1",
+  "description": "Enable intercom features for Capacitor",
+  "cordova": {
+    "id": "cordova-plugin-intercom-capacitor",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stewwan/capacitor-intercom.git"
+  },
+  "keywords": [
+    "intercom",
+    "intercom-capacitor",
+    "capacitor-ios",
+    "capacitor-android"
+  ],
+  "author": "Intercom",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/intercom/intercom-cordova/issues"
+  },
+  "homepage": "https://github.com/stewwan/capacitor-intercom#readme",
+  "scripts": {
+    "release:custom": "standard-version release --release-as x.x.x",
+    "release:patch": "standard-version release --release-as patch",
+    "release:minor": "standard-version release --release-as minor",
+    "release:major": "standard-version release --release-as major"
+  }
+}
