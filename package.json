@@ -1,34 +1,47 @@
 {
   "name": "capacitor-intercom",
-  "version": "0.0.2",
-  "description": "Enable intercom features for Capacitor",
-  "cordova": {
-    "id": "cordova-plugin-intercom-capacitor",
-    "platforms": [
-      "ios",
-      "android"
-    ]
+  "version": "0.0.1",
+  "description": "Enable Intercom features for Capacitor apps",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf ./dist",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Stewan Silva",
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/core": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.2"
+  },
+  "files": [
+    "dist/",
+    "ios/",
+    "android/",
+    "CapacitorIntercom.podspec"
+  ],
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native"
+  ],
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stewwan/capacitor-intercom.git"
+    "url": "https://github.com/stewwan/capacitor-intercom"
   },
-  "keywords": [
-    "intercom",
-    "intercom-capacitor",
-    "capacitor-ios",
-    "capacitor-android"
-  ],
-  "author": "Intercom",
-  "license": "MIT License",
   "bugs": {
-    "url": "https://github.com/intercom/intercom-cordova/issues"
-  },
-  "homepage": "https://github.com/stewwan/capacitor-intercom#readme",
-  "scripts": {
-    "release:custom": "standard-version release --release-as x.x.x",
-    "release:patch": "standard-version release --release-as patch",
-    "release:minor": "standard-version release --release-as minor",
-    "release:major": "standard-version release --release-as major"
+    "url": "https://github.com/stewwan/capacitor-intercom/issues"
   }
 }
