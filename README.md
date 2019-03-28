@@ -13,7 +13,7 @@ add to your app `android/app/src/main/res/xml/config.xml`
 ```
 // ...
     <preference name="intercom-app-id" value="xxx" />
-    <preference name="intercom-android-api-key" value="zzz" />   
+    <preference name="intercom-android-api-key" value="zzz" />
 // ...
 </widget>
 ```
@@ -26,7 +26,14 @@ add to your app `Info.plist`
 	<key>IntercomApiKey</key>
 	<string>xxx</string>
 	<key>IntercomAppId</key>
-	<string>yyy</string>  
+	<string>yyy</string>
+```
+
+add to your `AppDelegate.swift` class
+
+```
+
+
 ```
 
 # License
