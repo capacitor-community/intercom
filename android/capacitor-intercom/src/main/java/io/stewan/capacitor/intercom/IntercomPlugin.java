@@ -1,11 +1,19 @@
 package io.stewan.capacitor.intercom;
 
 import com.getcapacitor.Config;
-import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import io.intercom.android.sdk.Intercom;
 import io.intercom.android.sdk.identity.Registration;
@@ -56,56 +64,46 @@ public class IntercomPlugin extends Plugin {
 
     @PluginMethod()
     public void logout(PluginCall call) {
-        String value = call.getString("value");
-
-        JSObject ret = new JSObject();
-        ret.put("value", value);
-        call.success(ret);
+        Intercom.client().logout();
+        call.success();
     }
 
     @PluginMethod()
     public void logEvent(PluginCall call) {
-        String value = call.getString("value");
+        String eventName = call.getString("eventName");
+        Map<String, Object> metaData = mapFromJSON(call.getObject("metaData"));
 
-        JSObject ret = new JSObject();
-        ret.put("value", value);
-        call.success(ret);
+        if (metaData == null) {
+            Intercom.client().logEvent(eventName);
+        } else {
+            Intercom.client().logEvent(eventName, metaData);
+        }
+
+        call.success();
     }
 
     @PluginMethod()
     public void displayMessenger(PluginCall call) {
-        String value = call.getString("value");
-
-        JSObject ret = new JSObject();
-        ret.put("value", value);
-        call.success(ret);
+        Intercom.client().displayMessenger();
+        call.success();
     }
 
     @PluginMethod()
     public void displayMessageComposer(PluginCall call) {
-        String value = call.getString("value");
-
-        JSObject ret = new JSObject();
-        ret.put("value", value);
-        call.success(ret);
+        Intercom.client().displayMessageComposer();
+        call.success();
     }
 
     @PluginMethod()
     public void displayHelpCenter(PluginCall call) {
-        String value = call.getString("value");
-
-        JSObject ret = new JSObject();
-        ret.put("value", value);
-        call.success(ret);
+        Intercom.client().displayHelpCenter();
+        call.success();
     }
 
     @PluginMethod()
     public void hideMessenger(PluginCall call) {
-        String value = call.getString("value");
-
-        JSObject ret = new JSObject();
-        ret.put("value", value);
-        call.success(ret);
+        Intercom.client().hideMessenger();
+        call.success();
     }
 
     @PluginMethod()
@@ -118,5 +116,41 @@ public class IntercomPlugin extends Plugin {
     public void hideLauncher(PluginCall call) {
         Intercom.client().setLauncherVisibility(Intercom.GONE);
         call.success();
+    }
+
+    private static Map<String, Object> mapFromJSON(JSONObject jsonObject) {
+        if (jsonObject == null) {
+            return null;
+        }
+        Map<String, Object> map = new HashMap<>();
+        Iterator<String> keysIter = jsonObject.keys();
+        while (keysIter.hasNext()) {
+            String key = keysIter.next();
+            Object value = getObject(jsonObject.opt(key));
+            if (value != null) {
+                map.put(key, value);
+            }
+        }
+        return map;
+    }
+
+    private static Object getObject(Object value) {
+        if (value instanceof JSONObject) {
+            value = mapFromJSON((JSONObject) value);
+        } else if (value instanceof JSONArray) {
+            value = listFromJSON((JSONArray) value);
+        }
+        return value;
+    }
+
+    private static List<Object> listFromJSON(JSONArray jsonArray) {
+        List<Object> list = new ArrayList<>();
+        for (int i = 0, count = jsonArray.length(); i < count; i++) {
+            Object value = getObject(jsonArray.opt(i));
+            if (value != null) {
+                list.add(value);
+            }
+        }
+        return list;
     }
 }
