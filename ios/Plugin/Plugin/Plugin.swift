@@ -10,8 +10,8 @@ import Intercom
 public class IntercomPlugin: CAPPlugin {
     
     public override func load() {
-        let apiKey = getConfigValue("apiKey") as? String ?? "ADD_IN_CAPACITOR_CONFIG_JSON"
-        let appId = getConfigValue("appId") as? String ?? "ADD_IN_CAPACITOR_CONFIG_JSON"
+        let apiKey = getConfigValue("ios-apiKey") as? String ?? "ADD_IN_CAPACITOR_CONFIG_JSON"
+        let appId = getConfigValue("ios-appId") as? String ?? "ADD_IN_CAPACITOR_CONFIG_JSON"
         Intercom.setApiKey(apiKey, forAppId: appId)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didRegisterWithToken(notification:)), name: Notification.Name(CAPNotifications.DidRegisterForRemoteNotificationsWithDeviceToken.name()), object: nil)
