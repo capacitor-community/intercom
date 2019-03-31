@@ -54,8 +54,8 @@ public class IntercomPlugin: CAPPlugin {
     }
     
     @objc func logEvent(_ call: CAPPluginCall) {
-        let eventName = call.getString("eventName")
-        let metaData = call.getObject("metaData")
+        let eventName = call.getString("name")
+        let metaData = call.getObject("data")
         
         if (eventName != nil && metaData != nil) {
             Intercom.logEvent(withName: eventName!, metaData: metaData!)

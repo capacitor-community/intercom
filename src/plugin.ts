@@ -19,7 +19,7 @@ export class Intercom implements IIntercomPlugin {
     return IntercomPlugin.logout();
   }
 
-  logEvent(options: { eventName: string; metaData?: any }): Promise<void> {
+  logEvent(options: { name: string; data?: any }): Promise<void> {
     return IntercomPlugin.logEvent(options);
   }
 

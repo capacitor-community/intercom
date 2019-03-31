@@ -70,8 +70,8 @@ public class IntercomPlugin extends Plugin {
 
     @PluginMethod()
     public void logEvent(PluginCall call) {
-        String eventName = call.getString("eventName");
-        Map<String, Object> metaData = mapFromJSON(call.getObject("metaData"));
+        String eventName = call.getString("name");
+        Map<String, Object> metaData = mapFromJSON(call.getObject("data"));
 
         if (metaData == null) {
             Intercom.client().logEvent(eventName);

@@ -11,7 +11,7 @@ export interface IIntercomPlugin {
   }): Promise<void>;
   registerUnidentifiedUser(): Promise<void>;
   logout(): Promise<void>;
-  logEvent(options: { eventName: string; metaData?: any }): Promise<void>;
+  logEvent(options: { name: string; data?: any }): Promise<void>;
   displayMessenger(): Promise<void>;
   displayMessageComposer(options: { message: string }): Promise<void>;
   displayHelpCenter(): Promise<void>;
