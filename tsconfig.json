@@ -15,9 +15,17 @@
     "rootDir": "./src",
     "outDir": "dist/esm",
     "sourceMap": true,
-    "target": "es2015"
+    "target": "es2015",
+    "paths": {
+      "*": [
+        "./src",
+        "*"
+      ]
+    },
+    "baseUrl": "./src"
   },
   "files": [
     "src/index.ts"
   ]
 }
+
