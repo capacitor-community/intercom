@@ -46,4 +46,8 @@ export class Intercom implements IIntercomPlugin {
   hideLauncher(): Promise<void> {
     return IntercomPlugin.hideLauncher();
   }
+
+  setBottomPadding(options: {bottomPadding: number}) {
+    return IntercomPlugin.setBottomPadding(options);
+  }
 }

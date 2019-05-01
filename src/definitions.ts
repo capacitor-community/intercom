@@ -18,4 +18,7 @@ export interface IIntercomPlugin {
   hideMessenger(): Promise<void>;
   displayLauncher(): Promise<void>;
   hideLauncher(): Promise<void>;
+  setBottomPadding(options: {
+    bottomPadding: number;
+  }): Promise<void>;
 }

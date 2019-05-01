@@ -100,4 +100,13 @@ public class IntercomPlugin: CAPPlugin {
         Intercom.setLauncherVisible(false)
         call.success()
     }
+
+     @objc func setBottomPadding(_ call: CAPPluginCall) {
+        guard let bottomPadding = call.getFloat("bottomPadding") else {
+            call.error("Enter the bottom padding")
+            return
+        }
+        Intercom.setBottomPadding(CGFloat(bottomPadding))
+        call.success()
+    }
 }
