@@ -12,7 +12,7 @@
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "rootDir": "src",
+    "rootDir": "./src",
     "outDir": "dist/esm",
     "sourceMap": true,
     "target": "es2015"
