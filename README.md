@@ -1,4 +1,4 @@
-# capacitor-intercom
+# capacitor-intercom [![npm version](https://badge.fury.io/js/capacitor-intercom.svg)](https://badge.fury.io/js/capacitor-intercom)
 
 Capacitor plugin to enable features from Intercom
 
@@ -116,6 +116,7 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 
 ## You may also like
 
+- [capacitor-analytics](https://github.com/stewwan/capacitor-analytics)
 - [capacitor-media](https://github.com/stewwan/capacitor-media)
 - [capacitor-fcm](https://github.com/stewwan/capacitor-fcm)
 - [capacitor-twitter](https://github.com/stewwan/capacitor-twitter)
