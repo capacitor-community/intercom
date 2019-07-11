@@ -117,7 +117,9 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 ## You may also like
 
 - [capacitor-analytics](https://github.com/stewwan/capacitor-analytics)
+- [capacitor-fcm](https://github.com/stewwan/capacitor-fcm)
 - [capacitor-media](https://github.com/stewwan/capacitor-media)
+- [capacitor-datepick](https://github.com/stewwan/capacitor-datepick)
 - [capacitor-fcm](https://github.com/stewwan/capacitor-fcm)
 - [capacitor-twitter](https://github.com/stewwan/capacitor-twitter)
 
