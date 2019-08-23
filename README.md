@@ -1,6 +1,6 @@
 # capacitor-intercom [![npm version](https://badge.fury.io/js/capacitor-intercom.svg)](https://badge.fury.io/js/capacitor-intercom)
 
-Capacitor plugin to enable features from Intercom
+Capacitor plugin to enable features from [Intercom](https://www.intercom.com)
 
 ## API
 
@@ -14,6 +14,7 @@ Capacitor plugin to enable features from Intercom
 - hideMessenger
 - displayLauncher
 - hideLauncher
+- setUserHash
 
 ## Usage
 
@@ -27,29 +28,27 @@ const { PushNotifications } = Plugins;
 //
 // Register for push notifications from Intercom
 PushNotifications.register()
-  .then(console.log)
-  .catch(console.log);
 
 //
 // Register an indetified user
 intercom
   .registerIdentifiedUser({ userId: 123456 }) // or email or both
-  .then(console.log)
-  .catch(console.log);
 
 //
 // Register a log event
 intercom
   .logEvent({ name: "my-event", data: { pi: 3.14 } })
-  .then(console.log)
-  .catch(console.log);
 
 //
 // Display the message composer
 intercom
   .displayMessageComposer({ message: "Hello there!" } })
-  .then(console.log)
-  .catch(console.log);
+
+//
+// Identity Verification
+// https://developers.intercom.com/installing-intercom/docs/ios-identity-verification
+intercom
+  .setUserHash({ hmac: "xyz" } })
 ```
 
 ## iOS setup
