@@ -1,9 +1,9 @@
-import { Plugins } from "@capacitor/core";
-import { IIntercomPlugin } from "./definitions";
+import { Plugins } from '@capacitor/core';
+import { IntercomProtocol } from './definitions';
 
 const { IntercomPlugin } = Plugins;
 
-export class Intercom implements IIntercomPlugin {
+export class Intercom implements IntercomProtocol {
   registerIdentifiedUser(options: {
     userId?: string;
     email?: string;
@@ -45,5 +45,9 @@ export class Intercom implements IIntercomPlugin {
 
   hideLauncher(): Promise<void> {
     return IntercomPlugin.hideLauncher();
+  }
+
+  setUserHash(options: { hmac: string }): Promise<void> {
+    return IntercomPlugin.setUserHash(options);
   }
 }
