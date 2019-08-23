@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.1.0](https://github.com/stewwan/capacitor-intercom/compare/v0.0.5...v0.1.0) (2019-08-23)
+
+
+### Features
+
+* add setUserHash resolves [#2](https://github.com/stewwan/capacitor-intercom/issues/2) ([8614592](https://github.com/stewwan/capacitor-intercom/commit/8614592))
+
+
 
 <a name="0.0.5"></a>
 ## [0.0.5](https://github.com/stewwan/capacitor-intercom/compare/v0.0.4...v0.0.5) (2019-05-03)
