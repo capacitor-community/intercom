@@ -121,7 +121,7 @@ public class IntercomPlugin extends Plugin {
  
     @PluginMethod()
     public void setBottomPadding(PluginCall call) {
-        Integer bottomPadding = call.getInt("bottomPaddiing");
+        Integer bottomPadding = call.getInt("bottomPadding");
         Intercom.client().setBottomPadding(bottomPadding);
         call.success();
     }
