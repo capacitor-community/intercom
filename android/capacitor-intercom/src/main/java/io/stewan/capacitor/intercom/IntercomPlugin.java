@@ -126,6 +126,13 @@ public class IntercomPlugin extends Plugin {
         call.success();
     }
 
+    @PluginMethod()
+    public void setUserHash(PluginCall call) {
+        String hmac = call.getString("hmac");
+        Intercom.client().setUserHash(hmac);
+        call.success();
+    }
+
 
     private static Map<String, Object> mapFromJSON(JSONObject jsonObject) {
         if (jsonObject == null) {

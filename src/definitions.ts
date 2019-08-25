@@ -1,10 +1,10 @@
 declare global {
   interface PluginRegistry {
-    IntercomPlugin?: IIntercomPlugin;
+    IntercomPlugin?: IntercomProtocol;
   }
 }
 
-export interface IIntercomPlugin {
+export interface IntercomProtocol {
   registerIdentifiedUser(options: {
     userId?: string;
     email?: string;
@@ -21,4 +21,5 @@ export interface IIntercomPlugin {
   setBottomPadding(options: {
     bottomPadding: number;
   }): Promise<void>;
+  setUserHash(options: { hmac: string }): Promise<void>;
 }
