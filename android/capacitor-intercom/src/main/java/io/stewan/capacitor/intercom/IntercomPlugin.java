@@ -118,6 +118,15 @@ public class IntercomPlugin extends Plugin {
         call.success();
     }
 
+ 
+    @PluginMethod()
+    public void setBottomPadding(PluginCall call) {
+        Integer bottomPadding = call.getInt("bottomPaddiing");
+        Intercom.client().setBottomPadding(bottomPadding);
+        call.success();
+    }
+
+
     private static Map<String, Object> mapFromJSON(JSONObject jsonObject) {
         if (jsonObject == null) {
             return null;
