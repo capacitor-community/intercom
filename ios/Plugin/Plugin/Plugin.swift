@@ -112,5 +112,17 @@ public class IntercomPlugin: CAPPlugin {
       call.error("No hmac found. Read intercom docs and generate it.")
     }
   }
+
+  @objc func setBottomPadding(_ call: CAPPluginCall) {
+    let value = call.getString("value")
+    
+    if (value != nil) {
+      Intercom.setBottomPadding(value!)
+      call.success()
+      print("set bottom padding")
+    }else{
+      call.error("Enter a value for padding bottom")
+    }
+  }
   
 }

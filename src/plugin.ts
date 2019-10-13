@@ -50,4 +50,8 @@ export class Intercom implements IntercomProtocol {
   setUserHash(options: { hmac: string }): Promise<void> {
     return IntercomPlugin.setUserHash(options);
   }
+
+  setBottomPadding(options: { value: string }): Promise<void> {
+    return IntercomPlugin.setBottomPadding(options);
+  }
 }

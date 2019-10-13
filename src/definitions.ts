@@ -19,4 +19,5 @@ export interface IntercomProtocol {
   displayLauncher(): Promise<void>;
   hideLauncher(): Promise<void>;
   setUserHash(options: { hmac: string }): Promise<void>;
+  setBottomPadding(options: { value: string }): Promise<void>;
 }
