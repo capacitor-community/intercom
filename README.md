@@ -15,6 +15,7 @@ Capacitor plugin to enable features from [Intercom](https://www.intercom.com)
 - displayLauncher
 - hideLauncher
 - setUserHash
+- setBottomPadding
 
 ## Usage
 
