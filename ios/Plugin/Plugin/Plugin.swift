@@ -114,15 +114,16 @@ public class IntercomPlugin: CAPPlugin {
   }
 
   @objc func setBottomPadding(_ call: CAPPluginCall) {
-    let value = call.getString("value")
-    
-    if (value != nil) {
-      Intercom.setBottomPadding(value!)
-      call.success()
-      print("set bottom padding")
-    }else{
-      call.error("Enter a value for padding bottom")
-    }
+
+    if let value = call.getString("value"),
+      let number = NumberFormatter().number(from: value) {
+
+        Intercom.setBottomPadding(CGFloat(truncating: number))
+        call.success()
+        print("set bottom padding")
+      } else {
+        call.error("Enter a value for padding bottom")
+      }
   }
   
 }
