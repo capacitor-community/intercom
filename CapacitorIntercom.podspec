@@ -1,7 +1,7 @@
 
   Pod::Spec.new do |s|
     s.name = 'CapacitorIntercom'
-    s.version = '0.2.0'
+    s.version = '0.2.1'
     s.summary = 'Enable Intercom features for Capacitor apps'
     s.license = 'MIT'
     s.homepage = 'https://github.com/stewwan/capacitor-intercom'
