@@ -127,7 +127,8 @@ public class IntercomPlugin extends Plugin {
 
     @PluginMethod()
     public void setBottomPadding(PluginCall call) {
-        String value = call.getString("value");
+        String stringValue = call.getString("value");
+        int value = Integer.parseInt(stringValue);
         Intercom.client().setBottomPadding(value);
         call.success();
     }
