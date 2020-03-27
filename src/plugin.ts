@@ -15,6 +15,10 @@ export class Intercom implements IntercomProtocol {
     return IntercomPlugin.registerUnidentifiedUser();
   }
 
+  updateUser(options: {customAttributes: {[key: string]: any}}): Promise<void> {
+    return IntercomPlugin.updateUser(options);
+  }
+
   logout(): Promise<void> {
     return IntercomPlugin.logout();
   }
@@ -45,6 +49,14 @@ export class Intercom implements IntercomProtocol {
 
   hideLauncher(): Promise<void> {
     return IntercomPlugin.hideLauncher();
+  }
+
+  displayInAppMessages(): Promise<void> {
+    return IntercomPlugin.displayInAppMessages();
+  }
+
+  hideInAppMessages(): Promise<void> {
+    return IntercomPlugin.hideInAppMessages();
   }
 
   setUserHash(options: { hmac: string }): Promise<void> {
