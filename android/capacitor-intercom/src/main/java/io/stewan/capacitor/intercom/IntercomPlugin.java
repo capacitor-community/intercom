@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
 
 @NativePlugin()
@@ -62,6 +63,15 @@ public class IntercomPlugin extends Plugin {
         call.success();
     }
 
+    @PluginMethod()
+    public void updateUser(PluginCall call) {
+        Map<String, Object> customAttributes = mapFromJSON(call.getObject("customAttributes"));
+        UserAttributes.Builder builder = new UserAttributes.Builder();
+        builder.withCustomAttributes(customAttributes);
+        Intercom.client().updateUser(builder.build());
+        call.success();
+    }
+    
     @PluginMethod()
     public void logout(PluginCall call) {
         Intercom.client().logout();
@@ -114,6 +124,18 @@ public class IntercomPlugin extends Plugin {
 
     @PluginMethod()
     public void hideLauncher(PluginCall call) {
+        Intercom.client().setLauncherVisibility(Intercom.GONE);
+        call.success();
+    }
+
+    @PluginMethod()
+    public void displayInAppMessages(PluginCall call) {
+        Intercom.client().setInAppMessageVisibility(Intercom.VISIBLE);
+        call.success();
+    }
+
+    @PluginMethod()
+    public void hideInAppMessages(PluginCall call) {
         Intercom.client().setLauncherVisibility(Intercom.GONE);
         call.success();
     }

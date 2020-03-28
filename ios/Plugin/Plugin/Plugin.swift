@@ -47,6 +47,14 @@ public class IntercomPlugin: CAPPlugin {
     Intercom.registerUnidentifiedUser()
     call.success()
   }
+    
+  @objc func updateUser(_ call: CAPPluginCall) {
+    let customAttributes = call.getObject("customAttributes")
+    let userAttributes = ICMUserAttributes()
+    userAttributes.customAttributes = customAttributes
+    Intercom.updateUser(userAttributes)
+    call.success()
+  }
   
   @objc func logout(_ call: CAPPluginCall) {
     Intercom.logout()
@@ -101,6 +109,16 @@ public class IntercomPlugin: CAPPlugin {
     call.success()
   }
   
+  @objc func displayInAppMessages(_ call: CAPPluginCall) {
+    Intercom.setInAppMessagesVisible(true)
+    call.success()
+  }
+    
+  @objc func hideInAppMessages(_ call: CAPPluginCall) {
+    Intercom.setInAppMessagesVisible(false)
+    call.success()
+  }
+    
   @objc func setUserHash(_ call: CAPPluginCall) {
     let hmac = call.getString("hmac")
     

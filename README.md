@@ -6,6 +6,7 @@ Capacitor plugin to enable features from [Intercom](https://www.intercom.com)
 
 - registerIdentifiedUser
 - registerUnidentifiedUser
+- updateUser
 - logout
 - logEvent
 - displayMessenger
@@ -14,6 +15,8 @@ Capacitor plugin to enable features from [Intercom](https://www.intercom.com)
 - hideMessenger
 - displayLauncher
 - hideLauncher
+- displayInAppMessages
+- hideInAppMessages
 - setUserHash
 - setBottomPadding
 
