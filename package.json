@@ -1,6 +1,6 @@
 {
   "name": "capacitor-intercom",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Enable Intercom features for Capacitor apps",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
