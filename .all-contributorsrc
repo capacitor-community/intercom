@@ -1,6 +1,6 @@
 {
-  "projectName": "@capacitor-community/intercom",
-  "projectOwner": "stewwan",
+  "projectName": "intercom",
+  "projectOwner": "capacitor-community",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
