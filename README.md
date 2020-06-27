@@ -1,9 +1,46 @@
-# capacitor-intercom [![npm version](https://badge.fury.io/js/capacitor-intercom.svg)](https://badge.fury.io/js/capacitor-intercom)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
+<h3 align="center">Capacitor Intercom</h3>
+<p align="center"><strong><code>@capacitor-community/intercom</code></strong></p>
+<p align="center">
+  Capacitor community plugin for enabling Intercom capabilities
+</p>
 
-Capacitor plugin to enable features from [Intercom](https://www.intercom.com)
+<p align="center">
+  <img src="https://img.shields.io/maintenance/yes/2020?style=flat-square" />
+  <a href="https://github.com/capacitor-community/intercom/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/capacitor-community/intercom/CI?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/l/@capacitor-community/intercom?style=flat-square" /></a>
+<br>
+  <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/dw/@capacitor-community/intercom?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/v/@capacitor-community/intercom?style=flat-square" /></a>
+  <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-4-orange?style=flat-square" /></a><!-- ALL-CONTRIBUTORS-BADGE:END -->
+</p>
+
+## Maintainers
+
+| Maintainer   | GitHub                                | Social                                          |
+| ------------ | ------------------------------------- | ----------------------------------------------- |
+| Stewan Silva | [stewwan](https://github.com/stewwan) | [@StewanSilva](https://twitter.com/StewanSilva) |
+
+## Installation
+
+Using npm:
+
+```bash
+npm install @capacitor-community/intercom
+```
+
+Using yarn:
+
+```bash
+yarn add @capacitor-community/intercom
+```
+
+Sync native files:
+
+```bash
+npx cap sync
+```
 
 ## API
 
@@ -116,21 +153,6 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 
 > Tip: every time you change a native code you may need to clean up the cache (Build > Clean Project | Build > Rebuild Project) and then run the app again.
 
-## Sample app
-
-(coming soon)
-
-## You may also like
-
-- [capacitor-fcm](https://github.com/stewwan/capacitor-fcm)
-- [capacitor-analytics](https://github.com/stewwan/capacitor-analytics)
-- [capacitor-crashlytics](https://github.com/stewwan/capacitor-crashlytics)
-- [capacitor-twitter](https://github.com/stewwan/capacitor-twitter)
-
-Cheers 🍻
-
-Follow me [@Twitter](https://twitter.com/StewanSilva)
-
 ## License
 
 MIT
@@ -153,6 +175,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
