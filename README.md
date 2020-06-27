@@ -1,6 +1,6 @@
 # capacitor-intercom [![npm version](https://badge.fury.io/js/capacitor-intercom.svg)](https://badge.fury.io/js/capacitor-intercom)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Capacitor plugin to enable features from [Intercom](https://www.intercom.com)
@@ -147,6 +147,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://twitter.com/StewanSilva"><img src="https://avatars1.githubusercontent.com/u/719763?v=4" width="75px;" alt=""/><br /><sub><b>Stew</b></sub></a><br /><a href="https://github.com/stewwan/@capacitor-community/intercom/commits?author=stewwan" title="Code">💻</a> <a href="https://github.com/stewwan/@capacitor-community/intercom/commits?author=stewwan" title="Documentation">📖</a></td>
     <td align="center"><a href="https://davidseek.com/"><img src="https://avatars2.githubusercontent.com/u/17073950?v=4" width="75px;" alt=""/><br /><sub><b>David Seek</b></sub></a><br /><a href="https://github.com/stewwan/@capacitor-community/intercom/commits?author=davidseek" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/rnikitin"><img src="https://avatars3.githubusercontent.com/u/1829318?v=4" width="75px;" alt=""/><br /><sub><b>Roman Nikitin</b></sub></a><br /><a href="https://github.com/stewwan/@capacitor-community/intercom/commits?author=rnikitin" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/atomassoni"><img src="https://avatars1.githubusercontent.com/u/17362459?v=4" width="75px;" alt=""/><br /><sub><b>Anne Tomassoni</b></sub></a><br /><a href="https://github.com/stewwan/@capacitor-community/intercom/commits?author=atomassoni" title="Code">💻</a> <a href="https://github.com/stewwan/@capacitor-community/intercom/pulls?q=is%3Apr+reviewed-by%3Aatomassoni" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
