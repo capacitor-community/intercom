@@ -7,3 +7,4 @@ Build
 *.iml
 .idea
 android/capacitor-intercom/local.properties
+package-lock.json
