@@ -21,6 +21,10 @@
 | ------------ | ------------------------------------- | ----------------------------------------------- |
 | Stewan Silva | [stewwan](https://github.com/stewwan) | [@StewanSilva](https://twitter.com/StewanSilva) |
 
+## Notice 🚀
+
+We're starting fresh under an official org. If you were using the previous npm package `capacitor-intercom`, please update your package.json to `@capacitor-community/intercom`. Check out [changelog](/CHANGELOG.md) for more info.
+
 ## Installation
 
 Using npm:
