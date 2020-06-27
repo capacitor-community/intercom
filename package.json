@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-intercom",
+  "name": "@capacitor-community/intercom",
   "version": "1.0.0",
   "description": "Enable Intercom features for Capacitor apps",
   "main": "dist/esm/index.js",
