@@ -45,9 +45,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stewwan/capacitor-intercom"
+    "url": "https://github.com/capacitor-community/intercom"
   },
   "bugs": {
-    "url": "https://github.com/stewwan/capacitor-intercom/issues"
+    "url": "https://github.com/capacitor-community/intercom/issues"
   }
 }
