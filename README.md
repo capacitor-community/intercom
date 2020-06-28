@@ -67,7 +67,7 @@ npx cap sync
 ## Usage
 
 ```js
-import { Intercom } from "capacitor-intercom";
+import { Intercom } from "@capacitor-community/intercom";
 const intercom = new Intercom();
 
 import { Plugins } from "@capacitor/core";
@@ -103,7 +103,7 @@ intercom
 
 - `ionic start my-cap-app --capacitor`
 - `cd my-cap-app`
-- `npm install —-save capacitor-intercom`
+- `npm install —-save @capacitor-community/intercom`
 - `mkdir www && touch www/index.html`
 - `npx cap add ios`
 - add intercom keys to capacitor's configuration file
@@ -130,7 +130,7 @@ intercom
 
 - `ionic start my-cap-app --capacitor`
 - `cd my-cap-app`
-- `npm install —-save capacitor-intercom`
+- `npm install —-save @capacitor-community/intercom`
 - `mkdir www && touch www/index.html`
 - `npx cap add android`
 - add intercom keys to capacitor's configuration file
@@ -179,6 +179,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
