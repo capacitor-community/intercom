@@ -1,0 +1,23 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "capacitor-intercom-demo",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    },
+    "IntercomPlugin": {
+      "ios-apiKey": "ios_sdk-asdf",
+      "ios-appId": "xyz",
+      "android-apiKey": "android_sdk-asdf",
+      "android-appId": "xyz"
+    }
+  },
+  "cordova": {},
+  "server": {
+    "url": "http://192.168.1.6:8100",
+    "cleartext": true
+  }
+}

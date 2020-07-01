@@ -1,0 +1,7 @@
+{
+  "name": "capacitor-intercom-demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

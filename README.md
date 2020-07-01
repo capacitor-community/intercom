@@ -161,6 +161,10 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 
 MIT
 
+## Example
+
+- https://github.com/capacitor-community/intercom/blob/master/example
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
