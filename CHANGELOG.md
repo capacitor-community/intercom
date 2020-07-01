@@ -2,31 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.0.3](https://github.com/capacitor-community/intercom/compare/v1.0.2...v1.0.3) (2020-07-01)
+## Breaking change
 
+- Android: replace `io.stewan.capacitor.intercom.IntercomPlugin` to `com.getcapacitor.community.intercom.IntercomPlugin` in your `MainActivity.java`
+
+### [1.0.3](https://github.com/capacitor-community/intercom/compare/v1.0.2...v1.0.3) (2020-07-01)
 
 ### Features
 
-* add example ([fa97e20](https://github.com/capacitor-community/intercom/commit/fa97e20f65682eff2c076fb7a4e598a2ee011277))
-
+- add example ([fa97e20](https://github.com/capacitor-community/intercom/commit/fa97e20f65682eff2c076fb7a4e598a2ee011277))
 
 ### Bug Fixes
 
-* **android:** revamp platform ([9c72418](https://github.com/capacitor-community/intercom/commit/9c72418063fe970c1efe4d810170c17ea12deb0c))
+- **android:** revamp platform ([9c72418](https://github.com/capacitor-community/intercom/commit/9c72418063fe970c1efe4d810170c17ea12deb0c))
 
 ### [1.0.2](https://github.com/capacitor-community/intercom/compare/v1.0.1...v1.0.2) (2020-06-27)
 
-
 ### Bug Fixes
 
-* contributor links ([b40933d](https://github.com/capacitor-community/intercom/commit/b40933d5bddcf26f33849b2e4dbdd4fc4d3d5420))
+- contributor links ([b40933d](https://github.com/capacitor-community/intercom/commit/b40933d5bddcf26f33849b2e4dbdd4fc4d3d5420))
 
 ### [1.0.1](https://github.com/capacitor-community/intercom/compare/v1.0.0...v1.0.1) (2020-06-27)
 
-
 ### Bug Fixes
 
-* rename podspec ([bc9b0c4](https://github.com/capacitor-community/intercom/commit/bc9b0c42e56e6878711e89ec364363d3b68375d8))
+- rename podspec ([bc9b0c4](https://github.com/capacitor-community/intercom/commit/bc9b0c42e56e6878711e89ec364363d3b68375d8))
 
 ## 1.0.0 (2020-06-27)
 
