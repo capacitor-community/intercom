@@ -1,4 +1,4 @@
-package io.stewan.capacitor.intercom;
+package com.getcapacitor.community.intercom;
 
 import com.getcapacitor.Config;
 import com.getcapacitor.NativePlugin;
