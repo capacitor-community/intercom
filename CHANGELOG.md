@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/capacitor-community/intercom/compare/v1.0.2...v1.0.3) (2020-07-01)
+
+
+### Features
+
+* add example ([fa97e20](https://github.com/capacitor-community/intercom/commit/fa97e20f65682eff2c076fb7a4e598a2ee011277))
+
+
+### Bug Fixes
+
+* **android:** revamp platform ([9c72418](https://github.com/capacitor-community/intercom/commit/9c72418063fe970c1efe4d810170c17ea12deb0c))
+
 ### [1.0.2](https://github.com/capacitor-community/intercom/compare/v1.0.1...v1.0.2) (2020-06-27)
 
 
