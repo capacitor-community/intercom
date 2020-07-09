@@ -49,8 +49,28 @@ public class IntercomPlugin: CAPPlugin {
   }
     
   @objc func updateUser(_ call: CAPPluginCall) {
-    let customAttributes = call.getObject("customAttributes")
     let userAttributes = ICMUserAttributes()
+    let userId = call.getString("userId")
+    if (userId != nil) {
+        userAttributes.userId = userId
+    }
+    let email = call.getString("email")
+    if (email != nil) {
+        userAttributes.email = email
+    }
+    let name = call.getString("name")
+    if (name != nil) {
+        userAttributes.name = name
+    }
+    let phone = call.getString("phone")
+    if (phone != nil) {
+        userAttributes.phone = phone
+    }
+    let languageOverride = call.getString("languageOverride")
+    if (languageOverride != nil) {
+        userAttributes.languageOverride = languageOverride
+    }
+    let customAttributes = call.getObject("customAttributes")
     userAttributes.customAttributes = customAttributes
     Intercom.updateUser(userAttributes)
     call.success()

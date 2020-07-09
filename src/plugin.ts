@@ -1,5 +1,5 @@
 import { Plugins } from '@capacitor/core';
-import { IntercomProtocol } from './definitions';
+import { IntercomProtocol, UserUpdateOptions } from './definitions';
 
 const { IntercomPlugin } = Plugins;
 
@@ -15,7 +15,7 @@ export class Intercom implements IntercomProtocol {
     return IntercomPlugin.registerUnidentifiedUser();
   }
 
-  updateUser(options: {customAttributes: {[key: string]: any}}): Promise<void> {
+  updateUser(options: UserUpdateOptions): Promise<void> {
     return IntercomPlugin.updateUser(options);
   }
 

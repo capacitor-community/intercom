@@ -65,13 +65,33 @@ public class IntercomPlugin extends Plugin {
 
     @PluginMethod()
     public void updateUser(PluginCall call) {
-        Map<String, Object> customAttributes = mapFromJSON(call.getObject("customAttributes"));
         UserAttributes.Builder builder = new UserAttributes.Builder();
+        String userId = call.getString("userId");
+        if (userId != null && userId.length() > 0) {
+            builder.withUserId(userId);
+        }
+        String email = call.getString("email");
+        if (email != null && email.length() > 0) {
+            builder.withEmail(email);
+        }
+        String name = call.getString("name");
+        if (name != null && name.length() > 0) {
+            builder.withName(name);
+        }
+        String phone = call.getString("phone");
+        if (phone != null && phone.length() > 0) {
+            builder.withPhone(phone);
+        }
+        String languageOverride = call.getString("languageOverride");
+        if (languageOverride != null && languageOverride.length() > 0) {
+            builder.withLanguageOverride(languageOverride);
+        }
+        Map<String, Object> customAttributes = mapFromJSON(call.getObject("customAttributes"));
         builder.withCustomAttributes(customAttributes);
         Intercom.client().updateUser(builder.build());
         call.success();
     }
-    
+
     @PluginMethod()
     public void logout(PluginCall call) {
         Intercom.client().logout();
