@@ -2,17 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.1.0](https://github.com/capacitor-community/intercom/compare/v1.0.3...v1.1.0) (2020-07-11)
+## Breaking change
 
+- Android: replace `io.stewan.capacitor.intercom.IntercomPlugin` to `com.getcapacitor.community.intercom.IntercomPlugin` in your `MainActivity.java`
+
+## [1.1.0](https://github.com/capacitor-community/intercom/compare/v1.0.3...v1.1.0) (2020-07-11)
 
 ### Features
 
-* extend user update with new properties ([703d63e](https://github.com/capacitor-community/intercom/commit/703d63eef8546b84bccdd44fdb7718d7d0daa520)), closes [#19](https://github.com/capacitor-community/intercom/issues/19)
-
+- extend user update with new properties ([703d63e](https://github.com/capacitor-community/intercom/commit/703d63eef8546b84bccdd44fdb7718d7d0daa520)), closes [#19](https://github.com/capacitor-community/intercom/issues/19)
 
 ### Bug Fixes
 
-* lock capacitor core in 2.0 to avoid yarn issues ([6580a12](https://github.com/capacitor-community/intercom/commit/6580a12a8dd8fd1bfec4fc1b9f4dbd653a2ace4f))
+- lock capacitor core in 2.0 to avoid yarn issues ([6580a12](https://github.com/capacitor-community/intercom/commit/6580a12a8dd8fd1bfec4fc1b9f4dbd653a2ace4f))
 
 ### [1.0.3](https://github.com/capacitor-community/intercom/compare/v1.0.2...v1.0.3) (2020-07-01)
 
