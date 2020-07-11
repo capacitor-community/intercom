@@ -10,7 +10,7 @@ export interface IntercomProtocol {
     email?: string;
   }): Promise<void>;
   registerUnidentifiedUser(): Promise<void>;
-  updateUser(options: { customAttributes: { [key: string]: any } }): Promise<void>;
+  updateUser(options: UserUpdateOptions): Promise<void>;
   logout(): Promise<void>;
   logEvent(options: { name: string; data?: any }): Promise<void>;
   displayMessenger(): Promise<void>;
@@ -23,4 +23,13 @@ export interface IntercomProtocol {
   hideInAppMessages(): Promise<void>;
   setUserHash(options: { hmac: string }): Promise<void>;
   setBottomPadding(options: { value: string }): Promise<void>;
+}
+
+export interface UserUpdateOptions {
+  userId?: string;
+  email?: string;
+  name?: string;
+  phone?: string;
+  languageOverride?: string;
+  customAttributes: { [key: string]: any };
 }
