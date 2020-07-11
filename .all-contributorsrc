@@ -48,6 +48,15 @@
         "code",
         "review"
       ]
+    },
+    {
+      "login": "mmodzelewski",
+      "name": "Maciej Modzelewski",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7762633?v=4",
+      "profile": "https://github.com/mmodzelewski",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
