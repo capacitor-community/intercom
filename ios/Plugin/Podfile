@@ -14,5 +14,5 @@ target 'PluginTests' do
   use_frameworks!
 
   pod 'Capacitor'
-  pod 'Intercom'
+  pod 'Intercom', '~> 9'
 end
