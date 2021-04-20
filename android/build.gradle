@@ -50,6 +50,6 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'io.intercom.android:intercom-sdk:7.+'
-    implementation 'com.google.firebase:firebase-messaging:17.+'
+    implementation 'io.intercom.android:intercom-sdk:8.+'
+    implementation 'com.google.firebase:firebase-messaging:20.2.+'
 }
