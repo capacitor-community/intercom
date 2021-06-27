@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2.0.0](https://github.com/capacitor-community/intercom/compare/v1.1.0...v2.0.0) (2021-06-27)
 
+- update intercom dep for ios
+- update hide method for ios
+- fix example to use capacitor v2
+
 ## [1.1.0](https://github.com/capacitor-community/intercom/compare/v1.0.3...v1.1.0) (2020-07-11)
 
 ### Features
