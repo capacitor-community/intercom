@@ -11,5 +11,5 @@
     s.ios.deployment_target  = '11.0'
     s.static_framework = true
     s.dependency 'Capacitor'
-    s.dependency 'Intercom'
+    s.dependency 'Intercom', '~> 10.0'
   end
