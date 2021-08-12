@@ -8,7 +8,7 @@
     "build": "npm run clean && tsc",
     "clean": "rm -rf ./dist",
     "watch": "tsc --watch",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run build",
     "release:patch": "standard-version release --release-as patch",
     "release:minor": "standard-version release --release-as minor",
