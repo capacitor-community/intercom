@@ -8,7 +8,7 @@
   "unpkg": "dist/plugin.js",
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
-    "verify:ios": "cd ios/Plugin && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin && cd .. && cd ..",
+    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin && cd ..",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "verify:web": "npm run build",
     "format": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- autocorrect --format",

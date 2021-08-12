@@ -14,9 +14,8 @@ public class IntercomPlugin: CAPPlugin {
     let appId = getConfigValue("ios-appId") as? String ?? "ADD_IN_CAPACITOR_CONFIG_JSON"
     Intercom.setApiKey(apiKey, forAppId: appId)
     
-    NotificationCenter.default.addObserver(self, selector: #selector(self.didRegisterWithToken(notification:)), name: Notification.Name(CAPNotifications.DidRegisterForRemoteNotificationsWithDeviceToken.name()), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.didRegisterWithToken(notification:)), name: Notification.Name.capacitorDidRegisterForRemoteNotifications, object: nil)
   }
-  
   
   @objc func didRegisterWithToken(notification: NSNotification) {
     guard let deviceToken = notification.object as? Data else {
@@ -31,21 +30,21 @@ public class IntercomPlugin: CAPPlugin {
     
     if (userId != nil && userEmail != nil) {
       Intercom.registerUser(withUserId: userId!, email: userEmail!)
-      call.success()
+        call.resolve()
     }else if (userId != nil) {
       Intercom.registerUser(withUserId: userId!)
-      call.success()
+        call.resolve()
     }else if (userEmail != nil) {
       Intercom.registerUser(withEmail: userEmail!)
-      call.success()
+        call.resolve()
     }else{
-      call.error("No user registered. You must supply an email, userId or both")
+        call.reject("No user registered. You must supply an email, userId or both")
     }
   }
   
   @objc func registerUnidentifiedUser(_ call: CAPPluginCall) {
     Intercom.registerUnidentifiedUser()
-    call.success()
+    call.resolve()
   }
     
   @objc func updateUser(_ call: CAPPluginCall) {
@@ -73,12 +72,12 @@ public class IntercomPlugin: CAPPlugin {
     let customAttributes = call.getObject("customAttributes")
     userAttributes.customAttributes = customAttributes
     Intercom.updateUser(userAttributes)
-    call.success()
+    call.resolve()
   }
   
   @objc func logout(_ call: CAPPluginCall) {
     Intercom.logout()
-    call.success()
+    call.resolve()
   }
   
   @objc func logEvent(_ call: CAPPluginCall) {
@@ -92,51 +91,51 @@ public class IntercomPlugin: CAPPlugin {
       Intercom.logEvent(withName: eventName!)
     }
     
-    call.success()
+    call.resolve()
   }
   
   @objc func displayMessenger(_ call: CAPPluginCall) {
     Intercom.presentMessenger();
-    call.success()
+    call.resolve()
   }
   
   @objc func displayMessageComposer(_ call: CAPPluginCall) {
     guard let initialMessage = call.getString("message") else {
-      call.error("Enter an initial message")
+        call.reject("Enter an initial message")
       return
     }
     Intercom.presentMessageComposer(initialMessage);
-    call.success()
+    call.resolve()
   }
   
   @objc func displayHelpCenter(_ call: CAPPluginCall) {
     Intercom.presentHelpCenter()
-    call.success()
+    call.resolve()
   }
   
   @objc func hideMessenger(_ call: CAPPluginCall) {
     Intercom.hide()
-    call.success()
+    call.resolve()
   }
   
   @objc func displayLauncher(_ call: CAPPluginCall) {
     Intercom.setLauncherVisible(true)
-    call.success()
+    call.resolve()
   }
   
   @objc func hideLauncher(_ call: CAPPluginCall) {
     Intercom.setLauncherVisible(false)
-    call.success()
+    call.resolve()
   }
   
   @objc func displayInAppMessages(_ call: CAPPluginCall) {
     Intercom.setInAppMessagesVisible(true)
-    call.success()
+    call.resolve()
   }
     
   @objc func hideInAppMessages(_ call: CAPPluginCall) {
     Intercom.setInAppMessagesVisible(false)
-    call.success()
+    call.resolve()
   }
     
   @objc func setUserHash(_ call: CAPPluginCall) {
@@ -144,10 +143,10 @@ public class IntercomPlugin: CAPPlugin {
     
     if (hmac != nil) {
       Intercom.setUserHash(hmac!)
-      call.success()
+        call.resolve()
       print("hmac sent to intercom")
     }else{
-      call.error("No hmac found. Read intercom docs and generate it.")
+        call.reject("No hmac found. Read intercom docs and generate it.")
     }
   }
 
@@ -157,10 +156,10 @@ public class IntercomPlugin: CAPPlugin {
       let number = NumberFormatter().number(from: value) {
 
         Intercom.setBottomPadding(CGFloat(truncating: number))
-        call.success()
+        call.resolve()
         print("set bottom padding")
       } else {
-        call.error("Enter a value for padding bottom")
+        call.reject("Enter a value for padding bottom")
       }
   }
   
