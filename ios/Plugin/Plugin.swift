@@ -128,6 +128,11 @@ public class IntercomPlugin: CAPPlugin {
     call.resolve()
   }
   
+  @objc func hideIntercom(_ call: CAPPluginCall) {
+    Intercom.hideIntercom()
+    call.resolve()
+  }
+  
   @objc func displayInAppMessages(_ call: CAPPluginCall) {
     Intercom.setInAppMessagesVisible(true)
     call.resolve()
