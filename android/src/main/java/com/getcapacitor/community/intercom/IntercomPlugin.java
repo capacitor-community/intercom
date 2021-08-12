@@ -4,25 +4,23 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
+import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.UserAttributes;
+import io.intercom.android.sdk.identity.Registration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import io.intercom.android.sdk.Intercom;
-import io.intercom.android.sdk.UserAttributes;
-import io.intercom.android.sdk.identity.Registration;
-
-@CapacitorPlugin(name = "Intercom")
+@CapacitorPlugin(name = "IntercomPlugin")
 public class IntercomPlugin extends Plugin {
+
     public static final String CONFIG_KEY_PREFIX = "plugins.IntercomPlugin.android-";
 
-    @Override()
+    @Override
     public void load() {
         //
         // get config
@@ -38,8 +36,7 @@ public class IntercomPlugin extends Plugin {
         super.load();
     }
 
-
-    @PluginMethod()
+    @PluginMethod
     public void registerIdentifiedUser(PluginCall call) {
         String email = call.getString("email");
         String userId = call.getString("userId");
@@ -53,16 +50,16 @@ public class IntercomPlugin extends Plugin {
             registration = registration.withUserId(userId);
         }
         Intercom.client().registerIdentifiedUser(registration);
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void registerUnidentifiedUser(PluginCall call) {
         Intercom.client().registerUnidentifiedUser();
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void updateUser(PluginCall call) {
         UserAttributes.Builder builder = new UserAttributes.Builder();
         String userId = call.getString("userId");
@@ -88,16 +85,16 @@ public class IntercomPlugin extends Plugin {
         Map<String, Object> customAttributes = mapFromJSON(call.getObject("customAttributes"));
         builder.withCustomAttributes(customAttributes);
         Intercom.client().updateUser(builder.build());
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void logout(PluginCall call) {
         Intercom.client().logout();
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void logEvent(PluginCall call) {
         String eventName = call.getString("name");
         Map<String, Object> metaData = mapFromJSON(call.getObject("data"));
@@ -108,70 +105,75 @@ public class IntercomPlugin extends Plugin {
             Intercom.client().logEvent(eventName, metaData);
         }
 
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void displayMessenger(PluginCall call) {
         Intercom.client().displayMessenger();
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void displayMessageComposer(PluginCall call) {
         Intercom.client().displayMessageComposer();
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void displayHelpCenter(PluginCall call) {
         Intercom.client().displayHelpCenter();
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void hideMessenger(PluginCall call) {
-        Intercom.client().hideMessenger();
-        call.success();
+        call.reject("Not implemented on android.");
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void displayLauncher(PluginCall call) {
         Intercom.client().setLauncherVisibility(Intercom.VISIBLE);
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void hideLauncher(PluginCall call) {
         Intercom.client().setLauncherVisibility(Intercom.GONE);
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
+    public void hideIntercom(PluginCall call) {
+        Intercom.client().hideIntercom();
+        call.resolve();
+    }
+
+    @PluginMethod
     public void displayInAppMessages(PluginCall call) {
         Intercom.client().setInAppMessageVisibility(Intercom.VISIBLE);
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void hideInAppMessages(PluginCall call) {
         Intercom.client().setLauncherVisibility(Intercom.GONE);
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void setUserHash(PluginCall call) {
         String hmac = call.getString("hmac");
         Intercom.client().setUserHash(hmac);
-        call.success();
+        call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod
     public void setBottomPadding(PluginCall call) {
         String stringValue = call.getString("value");
         int value = Integer.parseInt(stringValue);
         Intercom.client().setBottomPadding(value);
-        call.success();
+        call.resolve();
     }
 
     private static Map<String, Object> mapFromJSON(JSONObject jsonObject) {
