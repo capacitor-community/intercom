@@ -1,6 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 
 import type {
+  DisplayMessageComposerOptions,
   IntercomPlugin,
   LogEventOptions,
   RegisterIdentifiedUserOptions,
@@ -36,7 +37,9 @@ export class IntercomWeb extends WebPlugin implements IntercomPlugin {
     throw this.unimplemented('Not implemented on web.');
   }
 
-  async displayMessageComposer(): Promise<void> {
+  async displayMessageComposer(
+    options: DisplayMessageComposerOptions,
+  ): Promise<void> {
     throw this.unimplemented('Not implemented on web.');
   }
 
