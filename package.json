@@ -8,6 +8,7 @@
     "build": "npm run clean && tsc",
     "clean": "rm -rf ./dist",
     "watch": "tsc --watch",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run build",
     "release:patch": "standard-version release --release-as patch",
     "release:minor": "standard-version release --release-as minor",
@@ -18,7 +19,7 @@
   "author": "Stewan Silva",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/core": "^2.0.0"
+    "@capacitor/core": "^3.0.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^6.16.0",
