@@ -33,6 +33,9 @@ export class IntercomWeb extends WebPlugin {
     async hideLauncher() {
         throw this.unimplemented('Not implemented on web.');
     }
+    async hideIntercom() {
+        throw this.unimplemented('Not implemented on web.');
+    }
     async displayInAppMessages() {
         throw this.unimplemented('Not implemented on web.');
     }

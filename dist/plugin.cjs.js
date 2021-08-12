@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var core = require('@capacitor/core');
 
-const Intercom = core.registerPlugin('Intercom', {
+const Intercom = core.registerPlugin('IntercomPlugin', {
     web: () => Promise.resolve().then(function () { return web; }).then(m => new m.IntercomWeb()),
 });
 
@@ -40,6 +40,9 @@ class IntercomWeb extends core.WebPlugin {
         throw this.unimplemented('Not implemented on web.');
     }
     async hideLauncher() {
+        throw this.unimplemented('Not implemented on web.');
+    }
+    async hideIntercom() {
         throw this.unimplemented('Not implemented on web.');
     }
     async displayInAppMessages() {

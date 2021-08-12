@@ -10,6 +10,7 @@ export interface IntercomPlugin {
     hideMessenger(): Promise<void>;
     displayLauncher(): Promise<void>;
     hideLauncher(): Promise<void>;
+    hideIntercom(): Promise<void>;
     displayInAppMessages(): Promise<void>;
     hideInAppMessages(): Promise<void>;
     setUserHash(options: SetUserHashOptions): Promise<void>;

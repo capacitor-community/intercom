@@ -12,6 +12,7 @@ export declare class IntercomWeb extends WebPlugin implements IntercomPlugin {
     hideMessenger(): Promise<void>;
     displayLauncher(): Promise<void>;
     hideLauncher(): Promise<void>;
+    hideIntercom(): Promise<void>;
     displayInAppMessages(): Promise<void>;
     hideInAppMessages(): Promise<void>;
     setUserHash(_options: SetUserHashOptions): Promise<void>;
