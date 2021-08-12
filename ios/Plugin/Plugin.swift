@@ -129,7 +129,7 @@ public class IntercomPlugin: CAPPlugin {
   }
   
   @objc func hideIntercom(_ call: CAPPluginCall) {
-    Intercom.hideIntercom()
+    Intercom.hide()
     call.resolve()
   }
   
