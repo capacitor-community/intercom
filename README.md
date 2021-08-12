@@ -151,7 +151,12 @@ intercom
 - `npx cap open android`
 - `[extra step]` in android case we need to tell Capacitor to initialise the plugin:
 
+### Capacitor v2:
 > on your `MainActivity.java` file add `import com.getcapacitor.community.intercom.IntercomPlugin;` and then inside the init callback `add(IntercomPlugin.class);`
+
+### Capacitor v3:
+> on your `MainActivity.java` file add `import com.getcapacitor.community.intercom.IntercomPlugin;` and then inside the init callback `registerPlugin(IntercomPlugin.class);`
+[More information](https://capacitorjs.com/docs/updating/3-0#switch-to-automatic-android-plugin-loading)
 
 Now you should be set to go. Try to run your client using `ionic cap run android --livereload`.
 

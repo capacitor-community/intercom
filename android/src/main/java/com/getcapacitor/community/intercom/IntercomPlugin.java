@@ -1,9 +1,9 @@
 package com.getcapacitor.community.intercom;
 
-import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.CapacitorPlugin;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,7 +18,7 @@ import io.intercom.android.sdk.Intercom;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
 
-@NativePlugin()
+@CapacitorPlugin(name = "Intercom")
 public class IntercomPlugin extends Plugin {
     public static final String CONFIG_KEY_PREFIX = "plugins.IntercomPlugin.android-";
 
