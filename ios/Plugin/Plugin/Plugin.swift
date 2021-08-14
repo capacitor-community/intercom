@@ -115,7 +115,7 @@ public class IntercomPlugin: CAPPlugin {
   }
   
   @objc func hideMessenger(_ call: CAPPluginCall) {
-    Intercom.hideMessenger()
+    Intercom.hide()
     call.success()
   }
   
