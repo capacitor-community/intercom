@@ -1,13 +1,4 @@
-package com.getcapacitor.community.intercom;
-
-import com.getcapacitor.Config;
-import com.getcapacitor.NativePlugin;
-import com.getcapacitor.Plugin;
-import com.getcapacitor.PluginCall;
-import com.getcapacitor.PluginMethod;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+package com.getcapacitor.community.intercom.intercom;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,11 +6,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.getcapacitor.JSArray;
+import com.getcapacitor.JSObject;
+import com.getcapacitor.Plugin;
+import com.getcapacitor.PluginCall;
+import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.CapacitorPlugin;
+
 import io.intercom.android.sdk.Intercom;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
 
-@NativePlugin()
+
+@CapacitorPlugin(name = "Intercom")
 public class IntercomPlugin extends Plugin {
     public static final String CONFIG_KEY_PREFIX = "plugins.IntercomPlugin.android-";
 
@@ -182,7 +181,7 @@ public class IntercomPlugin extends Plugin {
         call.success();
     }
 
-    private static Map<String, Object> mapFromJSON(JSONObject jsonObject) {
+    private static Map<String, Object> mapFromJSON(JSObject jsonObject) {
         if (jsonObject == null) {
             return null;
         }
@@ -199,15 +198,15 @@ public class IntercomPlugin extends Plugin {
     }
 
     private static Object getObject(Object value) {
-        if (value instanceof JSONObject) {
-            value = mapFromJSON((JSONObject) value);
-        } else if (value instanceof JSONArray) {
-            value = listFromJSON((JSONArray) value);
+        if (value instanceof JSObject) {
+            value = mapFromJSON((JSObject) value);
+        } else if (value instanceof JSArray) {
+            value = listFromJSON((JSArray) value);
         }
         return value;
     }
 
-    private static List<Object> listFromJSON(JSONArray jsonArray) {
+    private static List<Object> listFromJSON(JSArray jsonArray) {
         List<Object> list = new ArrayList<>();
         for (int i = 0, count = jsonArray.length(); i < count; i++) {
             Object value = getObject(jsonArray.opt(i));
