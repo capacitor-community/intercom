@@ -26,8 +26,8 @@ public class IntercomPlugin extends Plugin {
     public void load() {
         //
         // get config
-        String apiKey = this.bridge.getConfig().getString(CONFIG_KEY_PREFIX + "apiKey", "ADD_IN_CAPACITOR_CONFIG_JSON");
-        String appId = this.bridge.getConfig().getString(CONFIG_KEY_PREFIX + "appId", "ADD_IN_CAPACITOR_CONFIG_JSON");
+        String apiKey = this.getConfig().getString(CONFIG_KEY_PREFIX + "apiKey", "ADD_IN_CAPACITOR_CONFIG_JSON");
+        String appId = this.getConfig().getString(CONFIG_KEY_PREFIX + "appId", "ADD_IN_CAPACITOR_CONFIG_JSON");
 
         //
         // init intercom sdk
@@ -53,13 +53,13 @@ public class IntercomPlugin extends Plugin {
             registration = registration.withUserId(userId);
         }
         Intercom.client().registerIdentifiedUser(registration);
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void registerUnidentifiedUser(PluginCall call) {
         Intercom.client().registerUnidentifiedUser();
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
@@ -88,13 +88,13 @@ public class IntercomPlugin extends Plugin {
         Map<String, Object> customAttributes = mapFromJSON(call.getObject("customAttributes"));
         builder.withCustomAttributes(customAttributes);
         Intercom.client().updateUser(builder.build());
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void logout(PluginCall call) {
         Intercom.client().logout();
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
@@ -108,69 +108,69 @@ public class IntercomPlugin extends Plugin {
             Intercom.client().logEvent(eventName, metaData);
         }
 
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void displayMessenger(PluginCall call) {
         Intercom.client().displayMessenger();
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void displayMessageComposer(PluginCall call) {
         Intercom.client().displayMessageComposer();
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void displayHelpCenter(PluginCall call) {
         Intercom.client().displayHelpCenter();
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void hideMessenger(PluginCall call) {
-        Intercom.client().hideMessenger();
-        call.success();
+        Intercom.client().hideIntercom();
+        call.resolve();
     }
 
     @PluginMethod()
     public void displayLauncher(PluginCall call) {
         Intercom.client().setLauncherVisibility(Intercom.VISIBLE);
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void hideLauncher(PluginCall call) {
         Intercom.client().setLauncherVisibility(Intercom.GONE);
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void displayInAppMessages(PluginCall call) {
         Intercom.client().setInAppMessageVisibility(Intercom.VISIBLE);
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void hideInAppMessages(PluginCall call) {
         Intercom.client().setLauncherVisibility(Intercom.GONE);
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void displayCarousel(PluginCall call) {
         String carouselId = call.getString("carouselId");
         Intercom.client().displayCarousel(carouselId);
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
     public void setUserHash(PluginCall call) {
         String hmac = call.getString("hmac");
         Intercom.client().setUserHash(hmac);
-        call.success();
+        call.resolve();
     }
 
     @PluginMethod()
@@ -178,7 +178,7 @@ public class IntercomPlugin extends Plugin {
         String stringValue = call.getString("value");
         int value = Integer.parseInt(stringValue);
         Intercom.client().setBottomPadding(value);
-        call.success();
+        call.resolve();
     }
 
     private static Map<String, Object> mapFromJSON(JSObject jsonObject) {
