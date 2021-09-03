@@ -1,10 +1,10 @@
 declare global {
   interface PluginRegistry {
-    IntercomPlugin?: IntercomProtocol;
+    IntercomPlugin?: IntercomPlugin;
   }
 }
 
-export interface IntercomProtocol {
+export interface IntercomPlugin {
   registerIdentifiedUser(options: {
     userId?: string;
     email?: string;
