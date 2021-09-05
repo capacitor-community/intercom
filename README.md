@@ -63,6 +63,9 @@ npx cap sync
 - hideInAppMessages
 - setUserHash
 - setBottomPadding
+- sendPushTokenToIntercom
+- handlePush
+- isIntercomPush
 
 ## Usage
 
@@ -70,8 +73,7 @@ npx cap sync
 import { Intercom } from "@capacitor-community/intercom";
 const intercom = new Intercom();
 
-import { Plugins } from "@capacitor/core";
-const { PushNotifications } = Plugins;
+import { PushNotifications } from "@capacitor//push-notifications";
 
 //
 // Register for push notifications from Intercom

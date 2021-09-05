@@ -167,5 +167,16 @@ public class IntercomPlugin: CAPPlugin {
         call.reject("Enter a value for padding bottom")
       }
   }
+    
+  @objc func sendPushTokenToIntercom(_ call: CAPPluginCall) {
+    call.reject("Not implemented on iOS");
+  }
+
+  @objc func handlePush(_ call: CAPPluginCall) {
+    call.reject("Not implemented on iOS");
+  }
   
+  @objc func isIntercomPush(_ call: CAPPluginCall) {
+    call.reject("Not implemented on iOS");
+  }
 }

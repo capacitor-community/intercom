@@ -4,6 +4,8 @@ import type {
   DisplayMessageComposerOptions,
   IntercomPlugin,
   LogEventOptions,
+  PushNotificationSchema,
+  RefreshedToken,
   RegisterIdentifiedUserOptions,
   SetBottomPaddingOptions,
   SetUserHashOptions,
@@ -76,6 +78,20 @@ export class IntercomWeb extends WebPlugin implements IntercomPlugin {
   }
 
   async setBottomPadding(_options: SetBottomPaddingOptions): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async sendPushTokenToIntercom(_options: RefreshedToken): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async handlePush(_options: PushNotificationSchema): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async isIntercomPush(
+    _options: PushNotificationSchema,
+  ): Promise<{ isIntercom: boolean }> {
     throw this.unimplemented('Not implemented on web.');
   }
 }

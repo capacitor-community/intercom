@@ -1,12 +1,16 @@
 package com.getcapacitor.community.intercom;
 
+import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+
 import io.intercom.android.sdk.Intercom;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
+import io.intercom.android.sdk.push.IntercomPushClient;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,6 +23,7 @@ import org.json.JSONObject;
 public class IntercomPlugin extends Plugin {
 
     public static final String CONFIG_KEY_PREFIX = "plugins.IntercomPlugin.android-";
+    private final IntercomPushClient intercomPushClient = new IntercomPushClient();
 
     @Override
     public void load() {
@@ -34,6 +39,36 @@ public class IntercomPlugin extends Plugin {
         //
         // load parent
         super.load();
+    }
+
+    @PluginMethod
+    public void sendPushTokenToIntercom(PluginCall call) {
+        String refreshedToken = call.getString("value");
+        intercomPushClient.sendTokenToIntercom(this.getActivity().getApplication(), refreshedToken);
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void handlePush(PluginCall call) {
+        Map message = mapFromJSON(call.getObject("data"));
+        if (intercomPushClient.isIntercomPush(message)) {
+            intercomPushClient.handlePush(this.getActivity().getApplication(), message);
+            call.resolve();
+        } else {
+            call.reject("Not Intercom message.");
+        }
+    }
+
+    @PluginMethod
+    public void isIntercomPush(PluginCall call) {
+        JSObject ret = new JSObject();
+        Map message = mapFromJSON(call.getObject("data"));
+        if (intercomPushClient.isIntercomPush(message)) {
+            ret.put("isIntercom", true);
+        } else {
+            ret.put("isIntercom", false);
+        }
+        call.resolve(ret);
     }
 
     @PluginMethod
