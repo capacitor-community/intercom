@@ -1,8 +1,12 @@
 package com.getcapacitor.community.intercom;
 
-import com.getcapacitor.JSObject;
+import android.util.Log;
+
+import com.getcapacitor.Bridge;
+import com.getcapacitor.Logger;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
+import com.getcapacitor.CapConfig;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
@@ -21,54 +25,19 @@ import org.json.JSONObject;
 
 @CapacitorPlugin(name = "IntercomPlugin")
 public class IntercomPlugin extends Plugin {
-
-    public static final String CONFIG_KEY_PREFIX = "plugins.IntercomPlugin.android-";
-    private final IntercomPushClient intercomPushClient = new IntercomPushClient();
+    public static Bridge staticBridge = null;
 
     @Override
     public void load() {
-        //
-        // get config
-        String apiKey = this.bridge.getConfig().getString(CONFIG_KEY_PREFIX + "apiKey", "ADD_IN_CAPACITOR_CONFIG_JSON");
-        String appId = this.bridge.getConfig().getString(CONFIG_KEY_PREFIX + "appId", "ADD_IN_CAPACITOR_CONFIG_JSON");
+        staticBridge = this.bridge;
 
         //
-        // init intercom sdk
-        Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
+        // Set up Intercom
+        this.setUpIntercom();
 
         //
         // load parent
         super.load();
-    }
-
-    @PluginMethod
-    public void sendPushTokenToIntercom(PluginCall call) {
-        String refreshedToken = call.getString("value");
-        intercomPushClient.sendTokenToIntercom(this.getActivity().getApplication(), refreshedToken);
-        call.resolve();
-    }
-
-    @PluginMethod
-    public void handlePush(PluginCall call) {
-        Map message = mapFromJSON(call.getObject("data"));
-        if (intercomPushClient.isIntercomPush(message)) {
-            intercomPushClient.handlePush(this.getActivity().getApplication(), message);
-            call.resolve();
-        } else {
-            call.reject("Not Intercom message.");
-        }
-    }
-
-    @PluginMethod
-    public void isIntercomPush(PluginCall call) {
-        JSObject ret = new JSObject();
-        Map message = mapFromJSON(call.getObject("data"));
-        if (intercomPushClient.isIntercomPush(message)) {
-            ret.put("isIntercom", true);
-        } else {
-            ret.put("isIntercom", false);
-        }
-        call.resolve(ret);
     }
 
     @PluginMethod
@@ -209,6 +178,28 @@ public class IntercomPlugin extends Plugin {
         int value = Integer.parseInt(stringValue);
         Intercom.client().setBottomPadding(value);
         call.resolve();
+    }
+
+    public static void onNewToken(String refreshedToken, IntercomPushClient client) {
+        client.sendTokenToIntercom(staticBridge.getActivity().getApplication(), refreshedToken);
+    }
+
+    public static void sendRemoteMessage(Map message, IntercomPushClient client) {
+        client.handlePush(staticBridge.getActivity().getApplication(), message);
+    }
+
+    private void setUpIntercom() {
+        try {
+            // get config
+            CapConfig config = this.bridge.getConfig();
+            String apiKey = config.getPluginConfiguration("plugins.IntercomPlugin").getString("android-apiKey");
+            String appId = config.getPluginConfiguration("plugins.IntercomPlugin").getString("android-appId");
+
+            // init intercom sdk
+            Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
+        } catch (Exception e) {
+            Logger.error("IntercomPlugin", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
+        }
     }
 
     private static Map<String, Object> mapFromJSON(JSONObject jsonObject) {
