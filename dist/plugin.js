@@ -1,7 +1,7 @@
 var capacitorPlugin = (function (exports, core) {
     'use strict';
 
-    const Intercom = core.registerPlugin('IntercomPlugin', {
+    const Intercom = core.registerPlugin('Intercom', {
         web: () => Promise.resolve().then(function () { return web; }).then(m => new m.IntercomWeb()),
     });
 
@@ -24,7 +24,7 @@ var capacitorPlugin = (function (exports, core) {
         async displayMessenger() {
             throw this.unimplemented('Not implemented on web.');
         }
-        async displayMessageComposer() {
+        async displayMessageComposer(_options) {
             throw this.unimplemented('Not implemented on web.');
         }
         async displayHelpCenter() {
@@ -52,6 +52,15 @@ var capacitorPlugin = (function (exports, core) {
             throw this.unimplemented('Not implemented on web.');
         }
         async setBottomPadding(_options) {
+            throw this.unimplemented('Not implemented on web.');
+        }
+        async sendPushTokenToIntercom(_options) {
+            throw this.unimplemented('Not implemented on web.');
+        }
+        async handlePush(_notification) {
+            throw this.unimplemented('Not implemented on web.');
+        }
+        async receivePush(_notification) {
             throw this.unimplemented('Not implemented on web.');
         }
     }

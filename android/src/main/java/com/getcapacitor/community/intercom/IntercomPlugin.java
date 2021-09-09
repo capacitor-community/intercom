@@ -3,14 +3,17 @@ package com.getcapacitor.community.intercom;
 import android.util.Log;
 
 import com.getcapacitor.Bridge;
+import com.getcapacitor.JSObject;
 import com.getcapacitor.Logger;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.CapConfig;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import com.getcapacitor.annotation.Permission;
 
 import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.IntercomPushManager;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
 import io.intercom.android.sdk.push.IntercomPushClient;
@@ -23,19 +26,15 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-@CapacitorPlugin(name = "IntercomPlugin")
+@CapacitorPlugin(name = "Intercom", permissions = @Permission(strings = {}, alias = "receive"))
 public class IntercomPlugin extends Plugin {
-    public static Bridge staticBridge = null;
+    private final IntercomPushClient intercomPushClient = new IntercomPushClient();
 
     @Override
     public void load() {
-        staticBridge = this.bridge;
-
-        //
         // Set up Intercom
         this.setUpIntercom();
 
-        //
         // load parent
         super.load();
     }
@@ -180,25 +179,55 @@ public class IntercomPlugin extends Plugin {
         call.resolve();
     }
 
-    public static void onNewToken(String refreshedToken, IntercomPushClient client) {
-        client.sendTokenToIntercom(staticBridge.getActivity().getApplication(), refreshedToken);
+    @PluginMethod
+    public void receivePush(PluginCall call) {
+        try {
+            JSObject data = call.getData();
+            Map message = mapFromJSON(data);
+            if (intercomPushClient.isIntercomPush(message)) {
+                intercomPushClient.handlePush(this.bridge.getActivity().getApplication(), message);
+            }
+            call.resolve();
+        } catch (Exception e) {
+            call.reject(e.getMessage());
+        }
+    }
+    @PluginMethod
+    public void handlePush(PluginCall call) {
+        try {
+            JSObject data = call.getData();
+            Map message = mapFromJSON(data);
+            if (intercomPushClient.isIntercomPush(message)) {
+                Intercom.client().handlePushMessage();
+            }
+            call.resolve();
+        } catch (Exception e) {
+            call.reject(e.getMessage());
+        }
     }
 
-    public static void sendRemoteMessage(Map message, IntercomPushClient client) {
-        client.handlePush(staticBridge.getActivity().getApplication(), message);
+    @PluginMethod
+    public void sendPushTokenToIntercom(PluginCall call) {
+        String token = call.getString("value");
+        intercomPushClient.sendTokenToIntercom(this.bridge.getActivity().getApplication(), token);
+        JSObject ret = new JSObject();
+        ret.put("token", token);
+        call.resolve();
     }
 
     private void setUpIntercom() {
         try {
             // get config
             CapConfig config = this.bridge.getConfig();
-            String apiKey = config.getPluginConfiguration("plugins.IntercomPlugin").getString("android-apiKey");
-            String appId = config.getPluginConfiguration("plugins.IntercomPlugin").getString("android-appId");
+            String apiKey = config.getPluginConfiguration("Intercom").getString("android-apiKey");
+            String appId = config.getPluginConfiguration("Intercom").getString("android-appId");
+            String senderId = config.getPluginConfiguration("Intercom").getString("android-senderId");
 
             // init intercom sdk
+            IntercomPushManager.cacheSenderId(this.bridge.getContext(), senderId);
             Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
         } catch (Exception e) {
-            Logger.error("IntercomPlugin", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
+            Logger.error("Intercom", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
         }
     }
 

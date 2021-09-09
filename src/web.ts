@@ -40,7 +40,7 @@ export class IntercomWeb extends WebPlugin implements IntercomPlugin {
   }
 
   async displayMessageComposer(
-    options: DisplayMessageComposerOptions,
+    _options: DisplayMessageComposerOptions,
   ): Promise<void> {
     throw this.unimplemented('Not implemented on web.');
   }
@@ -85,13 +85,11 @@ export class IntercomWeb extends WebPlugin implements IntercomPlugin {
     throw this.unimplemented('Not implemented on web.');
   }
 
-  async handlePush(_options: PushNotificationSchema): Promise<void> {
+  async handlePush(_notification: PushNotificationSchema): Promise<void> {
     throw this.unimplemented('Not implemented on web.');
   }
 
-  async isIntercomPush(
-    _options: PushNotificationSchema,
-  ): Promise<{ isIntercom: boolean }> {
+  async receivePush(_notification: PushNotificationSchema): Promise<void> {
     throw this.unimplemented('Not implemented on web.');
   }
 }

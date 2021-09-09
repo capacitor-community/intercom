@@ -15,6 +15,24 @@ export interface IntercomPlugin {
     hideInAppMessages(): Promise<void>;
     setUserHash(options: SetUserHashOptions): Promise<void>;
     setBottomPadding(options: SetBottomPaddingOptions): Promise<void>;
+    /**
+     * Send push token to Intercom
+     *
+     * Only for Android
+     */
+    sendPushTokenToIntercom(options: RefreshedToken): Promise<void>;
+    /**
+     * Handle Intercom push action
+     *
+     * Only for Android
+     */
+    handlePush(notification: PushNotificationSchema): Promise<void>;
+    /**
+     * Receive Intercom push notification
+     *
+     * Only for Android
+     */
+    receivePush(notification: PushNotificationSchema): Promise<void>;
 }
 export interface UserUpdateOptions {
     userId?: string;
@@ -42,4 +60,71 @@ export interface SetUserHashOptions {
 }
 export interface SetBottomPaddingOptions {
     value: string;
+}
+export interface RefreshedToken {
+    value: string;
+}
+export interface PushNotificationSchema {
+    /**
+     * The notification title.
+     *
+     * @since 1.0.0
+     */
+    title?: string;
+    /**
+     * The notification subtitle.
+     *
+     * @since 1.0.0
+     */
+    subtitle?: string;
+    /**
+     * The main text payload for the notification.
+     *
+     * @since 1.0.0
+     */
+    body?: string;
+    /**
+     * The notification identifier.
+     *
+     * @since 1.0.0
+     */
+    id: string;
+    /**
+     * The number to display for the app icon badge.
+     *
+     * @since 1.0.0
+     */
+    badge?: number;
+    /**
+     * @since 1.0.0
+     */
+    notification?: any;
+    /**
+     * @since 1.0.0
+     */
+    data: any;
+    /**
+     * @since 1.0.0
+     */
+    click_action?: string;
+    /**
+     * @since 1.0.0
+     */
+    link?: string;
+    /**
+     * Set the group identifier for notification grouping
+     *
+     * Only available on Android. Works like `threadIdentifier` on iOS.
+     *
+     * @since 1.0.0
+     */
+    group?: string;
+    /**
+     * Designate this notification as the summary for an associated `group`.
+     *
+     * Only available on Android.
+     *
+     * @since 1.0.0
+     */
+    groupSummary?: boolean;
 }

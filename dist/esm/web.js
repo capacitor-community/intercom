@@ -18,7 +18,7 @@ export class IntercomWeb extends WebPlugin {
     async displayMessenger() {
         throw this.unimplemented('Not implemented on web.');
     }
-    async displayMessageComposer() {
+    async displayMessageComposer(_options) {
         throw this.unimplemented('Not implemented on web.');
     }
     async displayHelpCenter() {
@@ -46,6 +46,15 @@ export class IntercomWeb extends WebPlugin {
         throw this.unimplemented('Not implemented on web.');
     }
     async setBottomPadding(_options) {
+        throw this.unimplemented('Not implemented on web.');
+    }
+    async sendPushTokenToIntercom(_options) {
+        throw this.unimplemented('Not implemented on web.');
+    }
+    async handlePush(_notification) {
+        throw this.unimplemented('Not implemented on web.');
+    }
+    async receivePush(_notification) {
         throw this.unimplemented('Not implemented on web.');
     }
 }

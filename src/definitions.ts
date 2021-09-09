@@ -24,20 +24,18 @@ export interface IntercomPlugin {
   sendPushTokenToIntercom(options: RefreshedToken): Promise<void>;
 
   /**
-   * Send push token to Intercom
+   * Handle Intercom push action
    *
    * Only for Android
    */
-  handlePush(options: PushNotificationSchema): Promise<void>;
+  handlePush(notification: PushNotificationSchema): Promise<void>;
 
   /**
-   * Send push token to Intercom
+   * Receive Intercom push notification
    *
    * Only for Android
    */
-  isIntercomPush(
-    options: PushNotificationSchema,
-  ): Promise<{ isIntercom: boolean }>;
+  receivePush(notification: PushNotificationSchema): Promise<void>;
 }
 
 export interface UserUpdateOptions {
