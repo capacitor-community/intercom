@@ -22,12 +22,6 @@ export interface IntercomPlugin {
      */
     sendPushTokenToIntercom(options: RefreshedToken): Promise<void>;
     /**
-     * Handle Intercom push action
-     *
-     * Only for Android
-     */
-    handlePush(notification: PushNotificationSchema): Promise<void>;
-    /**
      * Receive Intercom push notification
      *
      * Only for Android

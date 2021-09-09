@@ -85,10 +85,6 @@ export class IntercomWeb extends WebPlugin implements IntercomPlugin {
     throw this.unimplemented('Not implemented on web.');
   }
 
-  async handlePush(_notification: PushNotificationSchema): Promise<void> {
-    throw this.unimplemented('Not implemented on web.');
-  }
-
   async receivePush(_notification: PushNotificationSchema): Promise<void> {
     throw this.unimplemented('Not implemented on web.');
   }

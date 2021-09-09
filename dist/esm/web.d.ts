@@ -18,6 +18,5 @@ export declare class IntercomWeb extends WebPlugin implements IntercomPlugin {
     setUserHash(_options: SetUserHashOptions): Promise<void>;
     setBottomPadding(_options: SetBottomPaddingOptions): Promise<void>;
     sendPushTokenToIntercom(_options: RefreshedToken): Promise<void>;
-    handlePush(_notification: PushNotificationSchema): Promise<void>;
     receivePush(_notification: PushNotificationSchema): Promise<void>;
 }
