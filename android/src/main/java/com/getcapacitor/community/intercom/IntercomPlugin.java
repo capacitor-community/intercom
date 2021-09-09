@@ -1,5 +1,7 @@
 package com.getcapacitor.community.intercom;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 import com.getcapacitor.Bridge;
@@ -33,10 +35,22 @@ public class IntercomPlugin extends Plugin {
     @Override
     public void load() {
         // Set up Intercom
-        this.setUpIntercom();
+        setUpIntercom();
 
         // load parent
         super.load();
+    }
+
+    @Override
+    public void handleOnStart() {
+        super.handleOnStart();
+        bridge.getActivity().runOnUiThread(new Runnable() {
+            @Override public void run() {
+                //We also initialize intercom here just in case it has died. If Intercom is already set up, this won't do anything.
+                setUpIntercom();
+                Intercom.client().handlePushMessage();
+            }
+        });
     }
 
     @PluginMethod
@@ -186,19 +200,6 @@ public class IntercomPlugin extends Plugin {
             Map message = mapFromJSON(data);
             if (intercomPushClient.isIntercomPush(message)) {
                 intercomPushClient.handlePush(this.bridge.getActivity().getApplication(), message);
-            }
-            call.resolve();
-        } catch (Exception e) {
-            call.reject(e.getMessage());
-        }
-    }
-    @PluginMethod
-    public void handlePush(PluginCall call) {
-        try {
-            JSObject data = call.getData();
-            Map message = mapFromJSON(data);
-            if (intercomPushClient.isIntercomPush(message)) {
-                Intercom.client().handlePushMessage();
             }
             call.resolve();
         } catch (Exception e) {
