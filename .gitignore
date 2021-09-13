@@ -6,5 +6,8 @@ Pods
 Build
 *.iml
 .idea
+.DS_Store
+
 android/capacitor-intercom/local.properties
 package-lock.json
+sensitive
