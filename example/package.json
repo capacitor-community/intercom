@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
-    "@capacitor-community/intercom": "^1.0.3",
+    "@capacitor-community/intercom": "../",
     "@capacitor/android": "^2.4.7",
     "@capacitor/core": "^2.4.7",
     "@capacitor/ios": "^2.4.7",
