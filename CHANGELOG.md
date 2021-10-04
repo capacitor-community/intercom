@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/capacitor-community/intercom/compare/v2.0.0...v2.0.1) (2021-10-04)
+
+
+### Bug Fixes
+
+* displayMessageComposer can sen a message to the messenger ([54428ce](https://github.com/capacitor-community/intercom/commit/54428ce6d1a5a7dd040810b18475bd227ea420ce))
+
 ## [2.0.0](https://github.com/capacitor-community/intercom/compare/v1.1.0...v2.0.0) (2021-06-27)
 
 - update intercom dep for ios
