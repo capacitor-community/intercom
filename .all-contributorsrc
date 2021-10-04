@@ -66,6 +66,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "gcorreaalves",
+      "name": "Gustavo Corrêa Alves",
+      "avatar_url": "https://avatars.githubusercontent.com/u/983426?v=4",
+      "profile": "https://github.com/gcorreaalves",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
