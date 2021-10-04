@@ -75,6 +75,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Jealvia",
+      "name": "Jealvia",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28424830?v=4",
+      "profile": "https://github.com/Jealvia",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7
