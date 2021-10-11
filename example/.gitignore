@@ -31,3 +31,4 @@ npm-debug.log*
 /www
 .gradle
 .idea
+DerivedData

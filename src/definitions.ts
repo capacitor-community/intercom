@@ -1,16 +1,10 @@
-declare global {
-  interface PluginRegistry {
-    IntercomPlugin?: IntercomProtocol;
-  }
-}
-
-export interface IntercomProtocol {
+export interface IntercomPlugin {
   registerIdentifiedUser(options: {
     userId?: string;
     email?: string;
   }): Promise<void>;
   registerUnidentifiedUser(): Promise<void>;
-  updateUser(options: UserUpdateOptions): Promise<void>;
+  updateUser(options: IntercomUserUpdateOptions): Promise<void>;
   logout(): Promise<void>;
   logEvent(options: { name: string; data?: any }): Promise<void>;
   displayMessenger(): Promise<void>;
@@ -26,7 +20,7 @@ export interface IntercomProtocol {
   setBottomPadding(options: { value: string }): Promise<void>;
 }
 
-export interface UserUpdateOptions {
+export interface IntercomUserUpdateOptions {
   userId?: string;
   email?: string;
   name?: string;

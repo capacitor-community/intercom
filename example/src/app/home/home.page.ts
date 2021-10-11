@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Plugins } from '@capacitor/core';
+import { Intercom } from '@capacitor-community/intercom';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +8,12 @@ import { Plugins } from '@capacitor/core';
 })
 export class HomePage {
   constructor() {
-    Plugins.IntercomPlugin.registerUnidentifiedUser();
+    Intercom.registerUnidentifiedUser();
   }
   displayLauncher() {
-    Plugins.IntercomPlugin.displayLauncher();
+    Intercom.displayLauncher();
   }
   hideLauncher() {
-    Plugins.IntercomPlugin.hideLauncher();
+    Intercom.hideLauncher();
   }
 }
