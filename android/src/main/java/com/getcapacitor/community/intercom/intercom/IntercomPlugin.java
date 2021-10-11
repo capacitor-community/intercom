@@ -20,14 +20,14 @@ import io.intercom.android.sdk.identity.Registration;
 
 @CapacitorPlugin(name = "Intercom")
 public class IntercomPlugin extends Plugin {
-    public static final String CONFIG_KEY_PREFIX = "plugins.IntercomPlugin.android-";
+    public static final String CONFIG_KEY_PREFIX = "plugins.Intercom.android";
 
     @Override()
     public void load() {
         //
         // get config
-        String apiKey = this.getConfig().getString(CONFIG_KEY_PREFIX + "apiKey", "ADD_IN_CAPACITOR_CONFIG_JSON");
-        String appId = this.getConfig().getString(CONFIG_KEY_PREFIX + "appId", "ADD_IN_CAPACITOR_CONFIG_JSON");
+        String apiKey = this.getConfig().getString(CONFIG_KEY_PREFIX + "ApiKey", "ADD_IN_CAPACITOR_CONFIG_JSON");
+        String appId = this.getConfig().getString(CONFIG_KEY_PREFIX + "AppId", "ADD_IN_CAPACITOR_CONFIG_JSON");
 
         //
         // init intercom sdk
@@ -119,7 +119,8 @@ public class IntercomPlugin extends Plugin {
 
     @PluginMethod()
     public void displayMessageComposer(PluginCall call) {
-        Intercom.client().displayMessageComposer();
+        String message = call.getString("message");
+        Intercom.client().displayMessageComposer(message);
         call.resolve();
     }
 
