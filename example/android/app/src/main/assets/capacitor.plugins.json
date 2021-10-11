@@ -1,0 +1,6 @@
+[
+	{
+		"pkg": "@capacitor-community/intercom",
+		"classpath": "com.getcapacitor.community.intercom.intercom.IntercomPlugin"
+	}
+]

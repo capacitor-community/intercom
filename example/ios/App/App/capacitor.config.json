@@ -1,19 +1,19 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "capacitor-intercom-demo",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www",
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 0
-    },
-    "IntercomPlugin": {
-      "ios-apiKey": "ios_sdk-asdf",
-      "ios-appId": "xyz",
-      "android-apiKey": "android_sdk-asdf",
-      "android-appId": "xyz"
-    }
-  },
-  "cordova": {}
+	"appId": "io.ionic.starter",
+	"appName": "capacitor-intercom-demo",
+	"bundledWebRuntime": false,
+	"npmClient": "npm",
+	"webDir": "www",
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 0
+		},
+		"Intercom": {
+			"iosApiKey": "",
+			"iosAppId": "",
+			"androidApiKey": "",
+			"androidAppId": ""
+		}
+	},
+	"cordova": {}
 }

@@ -8,11 +8,11 @@
     "SplashScreen": {
       "launchShowDuration": 0
     },
-    "IntercomPlugin": {
-      "ios-apiKey": "ios_sdk-asdf",
-      "ios-appId": "xyz",
-      "android-apiKey": "android_sdk-asdf",
-      "android-appId": "xyz"
+    "Intercom": {
+      "iosApiKey": "",
+      "iosAppId": "",
+      "androidApiKey": "",
+      "androidAppId": ""
     }
   },
   "cordova": {}
