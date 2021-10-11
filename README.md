@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/maintenance/yes/2020?style=flat-square" />
+  <img src="https://img.shields.io/maintenance/yes/2021?style=flat-square" />
   <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/l/@capacitor-community/intercom?style=flat-square" /></a>
 <br>
   <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/dw/@capacitor-community/intercom?style=flat-square" /></a>
@@ -18,13 +18,40 @@
 
 ## Maintainers
 
-| Maintainer   | GitHub                                | Social                                          |
-| ------------ | ------------------------------------- | ----------------------------------------------- |
-| Stewan Silva | [stewwan](https://github.com/stewwan) | [@StewanSilva](https://twitter.com/StewanSilva) |
+| Maintainer   | GitHub                                  | Social                                    |
+| ------------ | --------------------------------------- | ----------------------------------------- |
+| Stewan Silva | [stewones](https://github.com/stewones) | [@stewones](https://twitter.com/stewones) |
 
 ## Notice 🚀
 
 We're starting fresh under an official org. If you were using the previous npm package `capacitor-intercom`, please update your package.json to `@capacitor-community/intercom`. Check out [changelog](/CHANGELOG.md) for more info.
+
+## Breaking changes from Capacitor v2 to v3
+
+- `UserUpdateOptions` option type becomes `IntercomUserUpdateOptions`
+- `IntercomPlugin` configuration key becomes `Intercom`
+- `android-apiKey` config key becomes `androidApiKey`
+- `android-appId` config key becomes `androidAppId`
+- `android-appId` config key becomes `androidAppId`
+- `ios-apiKey` config key becomes `iosApiKey`
+- `ios-appId` config key becomes `iosAppId`
+- [Switch from CAPBridge to ApplicationDelegateProxy](https://capacitorjs.com/docs/updating/3-0#switch-from-capbridge-to-applicationdelegateproxy-in-application-events) in application events
+- remove the whole onCreate initialization from your app's `MainActivity.java`
+
+```diff
+ public class MainActivity extends BridgeActivity {
+-    @Override
+-    public void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-
+-        // Initializes the Bridge
+-        this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+-            // Additional plugins you've installed go here
+-            add(IntercomPlugin.class);
+-        }});
+-    }
+ }
+```
 
 ## Installation
 
@@ -68,36 +95,24 @@ npx cap sync
 ## Usage
 
 ```js
-import { Intercom } from "@capacitor-community/intercom";
-const intercom = new Intercom();
+import { Intercom } from '@capacitor-community/intercom';
+import { PushNotifications } from '@capacitor/push-notifications';
 
-import { Plugins } from "@capacitor/core";
-const { PushNotifications } = Plugins;
-
-//
 // Register for push notifications from Intercom
-PushNotifications.register()
+PushNotifications.register();
 
-//
 // Register an indetified user
-intercom
-  .registerIdentifiedUser({ userId: 123456 }) // or email or both
+Intercom.registerIdentifiedUser({ userId: 123456 }); // or email or both
 
-//
 // Register a log event
-intercom
-  .logEvent({ name: "my-event", data: { pi: 3.14 } })
+Intercom.logEvent({ name: 'my-event', data: { pi: 3.14 } });
 
-//
 // Display the message composer
-intercom
-  .displayMessageComposer({ message: "Hello there!" } })
+Intercom.displayMessageComposer({ message: 'Hello there!' });
 
-//
 // Identity Verification
 // https://developers.intercom.com/installing-intercom/docs/ios-identity-verification
-intercom
-  .setUserHash({ hmac: "xyz" } })
+Intercom.setUserHash({ hmac: 'xyz' });
 ```
 
 ## iOS setup
@@ -113,9 +128,9 @@ intercom
 {
  …
   "plugins": {
-   "IntercomPlugin": {
-      "ios-apiKey": "ios_sdk-xxx",
-      "ios-appId": "yyy"
+   "Intercom": {
+      "iosApiKey": "ios_sdk-xxx",
+      "iosAppId": "yyy"
     }
   }
 …
@@ -140,9 +155,9 @@ intercom
 {
  …
   "plugins": {
-   "IntercomPlugin": {
-      "android-apiKey": "android_sdk-xxx",
-      "android-appId": "yyy"
+   "Intercom": {
+      "androidApiKey": "android_sdk-xxx",
+      "androidAppId": "yyy"
     }
   }
 …
@@ -150,9 +165,6 @@ intercom
 ```
 
 - `npx cap open android`
-- `[extra step]` in android case we need to tell Capacitor to initialise the plugin:
-
-> on your `MainActivity.java` file add `import com.getcapacitor.community.intercom.IntercomPlugin;` and then inside the init callback `add(IntercomPlugin.class);`
 
 Now you should be set to go. Try to run your client using `ionic cap run android --livereload`.
 
@@ -175,7 +187,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://twitter.com/StewanSilva"><img src="https://avatars1.githubusercontent.com/u/719763?v=4" width="75px;" alt=""/><br /><sub><b>Stew</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=stewwan" title="Code">💻</a> <a href="https://github.com/capacitor-community/intercom/commits?author=stewwan" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://twitter.com/stewones"><img src="https://avatars1.githubusercontent.com/u/719763?v=4" width="75px;" alt=""/><br /><sub><b>Stew</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=stewones" title="Code">💻</a> <a href="https://github.com/capacitor-community/intercom/commits?author=stewones" title="Documentation">📖</a></td>
     <td align="center"><a href="https://davidseek.com/"><img src="https://avatars2.githubusercontent.com/u/17073950?v=4" width="75px;" alt=""/><br /><sub><b>David Seek</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=davidseek" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/rnikitin"><img src="https://avatars3.githubusercontent.com/u/1829318?v=4" width="75px;" alt=""/><br /><sub><b>Roman Nikitin</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=rnikitin" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/atomassoni"><img src="https://avatars1.githubusercontent.com/u/17362459?v=4" width="75px;" alt=""/><br /><sub><b>Anne Tomassoni</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=atomassoni" title="Code">💻</a> <a href="https://github.com/capacitor-community/intercom/pulls?q=is%3Apr+reviewed-by%3Aatomassoni" title="Reviewed Pull Requests">👀</a></td>
@@ -186,6 +198,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
