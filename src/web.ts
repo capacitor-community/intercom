@@ -1,20 +1,85 @@
-// import { WebPlugin } from '@capacitor/core';
-// import { IntercomPluginPlugin } from './definitions';
+import { WebPlugin } from '@capacitor/core';
+import { IntercomPlugin, IntercomUserUpdateOptions } from './definitions';
+export class IntercomWeb extends WebPlugin implements IntercomPlugin {
+  constructor() {
+    super({
+      name: 'Intercom',
+      platforms: ['web'],
+    });
+  }
 
-// export class IntercomPluginWeb extends WebPlugin implements IntercomPluginPlugin {
-//   constructor() {
-//     super({
-//       name: 'IntercomPlugin',
-//       platforms: ['web']
-//     });
-//   }
+  async registerIdentifiedUser(options: { userId?: string; email?: string }) {
+    options;
+    throw this.unimplemented('Not implemented on web.');
+  }
 
-//   async echo(options: { value: string }): Promise<{value: string}> {
-//     console.log('ECHO', options);
-//     return options;
-//   }
-// }
+  async registerUnidentifiedUser() {
+    throw this.unimplemented('Not implemented on web.');
+  }
 
-// const IntercomPlugin = new IntercomPluginWeb();
+  async updateUser(options: IntercomUserUpdateOptions) {
+    options;
+    throw this.unimplemented('Not implemented on web.');
+  }
 
-// export { IntercomPlugin };
+  async logout() {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async logEvent(options: { name: string; data?: any }) {
+    options;
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async displayMessenger() {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async displayMessageComposer(options: { message: string }) {
+    options;
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async displayHelpCenter() {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async hideMessenger() {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async displayLauncher() {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async hideLauncher() {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async displayInAppMessages() {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async hideInAppMessages() {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async displayCarousel(options: { carouselId: string }) {
+    options;
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async setUserHash(options: { hmac: string }) {
+    options;
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async setBottomPadding(options: { value: string }) {
+    options;
+    throw this.unimplemented('Not implemented on web.');
+  }
+}
+
+const Intercom = new IntercomWeb();
+
+export { Intercom };
