@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/capacitor-community/intercom/compare/v2.0.1...v3.0.0) (2021-10-11)
+
+
+### Bug Fixes
+
+* android config initialization ([6d5440e](https://github.com/capacitor-community/intercom/commit/6d5440ec9e0508b0a41f54abd199bc07ab7ca54b))
+* plugin api ([bdae017](https://github.com/capacitor-community/intercom/commit/bdae017151fd5d1e203e977a56521258a02d3c81))
+* ts definitions ([7433dac](https://github.com/capacitor-community/intercom/commit/7433dacbec98819a477e3b79a026f6299f9ffd10))
+
 ### [2.0.1](https://github.com/capacitor-community/intercom/compare/v2.0.0...v2.0.1) (2021-10-04)
 
 
