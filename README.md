@@ -32,7 +32,6 @@ We're starting fresh under an official org. If you were using the previous npm p
 - `IntercomPlugin` configuration key becomes `Intercom`
 - `android-apiKey` config key becomes `androidApiKey`
 - `android-appId` config key becomes `androidAppId`
-- `android-appId` config key becomes `androidAppId`
 - `ios-apiKey` config key becomes `iosApiKey`
 - `ios-appId` config key becomes `iosAppId`
 - [Switch from CAPBridge to ApplicationDelegateProxy](https://capacitorjs.com/docs/updating/3-0#switch-from-capbridge-to-applicationdelegateproxy-in-application-events) in application events
