@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/capacitor-community/intercom/compare/v3.0.0...v3.0.1) (2021-10-13)
+
+
+### Bug Fixes
+
+* remove Podfile.lock closes [#44](https://github.com/capacitor-community/intercom/issues/44) ([d2e7374](https://github.com/capacitor-community/intercom/commit/d2e737455a67efe7584dc696bc7ec172b94a74aa))
+* typo on README ([dbdc6b6](https://github.com/capacitor-community/intercom/commit/dbdc6b66b77046ddf09cc4ba8bfa6450e985d609))
+
 ## [3.0.0](https://github.com/capacitor-community/intercom/compare/v2.0.1...v3.0.0) (2021-10-11)
 
 
