@@ -1,5 +1,5 @@
 import { WebPlugin } from '@capacitor/core';
-import { IntercomPlugin, IntercomUserUpdateOptions } from './definitions';
+import { IntercomPlugin, IntercomPushNotificationData, IntercomUserUpdateOptions } from './definitions';
 export class IntercomWeb extends WebPlugin implements IntercomPlugin {
   constructor() {
     super({
@@ -76,6 +76,14 @@ export class IntercomWeb extends WebPlugin implements IntercomPlugin {
 
   async setBottomPadding(options: { value: string }) {
     options;
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  receivePush(notification: IntercomPushNotificationData): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  sendPushTokenToIntercom(options: { value: string }): Promise<void> {
     throw this.unimplemented('Not implemented on web.');
   }
 }

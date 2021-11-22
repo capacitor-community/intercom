@@ -9,6 +9,8 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 import io.intercom.android.sdk.Intercom;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
+import io.intercom.android.sdk.push.IntercomPushClient;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,6 +19,8 @@ import java.util.Map;
 
 @CapacitorPlugin(name = "Intercom")
 public class IntercomPlugin extends Plugin {
+
+    private final IntercomPushClient intercomPushClient = new IntercomPushClient();
 
     @Override
     public void load() {
@@ -175,6 +179,33 @@ public class IntercomPlugin extends Plugin {
         int value = Integer.parseInt(stringValue);
         Intercom.client().setBottomPadding(value);
         call.resolve();
+    }
+
+    @PluginMethod
+    public void sendPushTokenToIntercom(PluginCall call) {
+        String token = call.getString("value");
+        try {
+            intercomPushClient.sendTokenToIntercom(this.getActivity().getApplication(), token);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("Failed to send push token to Intercom", e);
+        }
+    }
+
+    @PluginMethod
+    public void receivePush(PluginCall call) {
+        try {
+            JSObject notificationData = call.getData();
+            Map message = mapFromJSON(notificationData);
+            if (intercomPushClient.isIntercomPush(message)) {
+                intercomPushClient.handlePush(this.getActivity().getApplication(), message);
+                call.resolve();
+            } else {
+                call.reject("Notification data was not a valid Intercom push message");
+            }
+        } catch (Exception e) {
+            call.reject("Failed to handle received Intercom push", e);
+        }
     }
 
     private static Map<String, Object> mapFromJSON(JSObject jsonObject) {
