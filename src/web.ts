@@ -80,10 +80,12 @@ export class IntercomWeb extends WebPlugin implements IntercomPlugin {
   }
 
   receivePush(notification: IntercomPushNotificationData): Promise<void> {
+    notification;
     throw this.unimplemented('Not implemented on web.');
   }
 
   sendPushTokenToIntercom(options: { value: string }): Promise<void> {
+    options;
     throw this.unimplemented('Not implemented on web.');
   }
 }
