@@ -222,12 +222,10 @@ public class IntercomPlugin extends Plugin {
         try {
             // get config
             CapConfig config = this.bridge.getConfig();
-            String apiKey = config.getPluginConfiguration("Intercom").getString("android-apiKey");
-            String appId = config.getPluginConfiguration("Intercom").getString("android-appId");
-            String senderId = config.getPluginConfiguration("Intercom").getString("android-senderId");
+            String apiKey = config.getPluginConfiguration("Intercom").getString("androidApiKey");
+            String appId = config.getPluginConfiguration("Intercom").getString("androidAppId");
 
             // init intercom sdk
-            IntercomPushManager.cacheSenderId(this.bridge.getContext(), senderId);
             Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
         } catch (Exception e) {
             Logger.error("Intercom", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
