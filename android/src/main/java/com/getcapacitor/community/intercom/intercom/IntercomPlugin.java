@@ -1,41 +1,57 @@
-package com.getcapacitor.community.intercom.intercom;
+package com.getcapacitor.community.intercom;
 
-import com.getcapacitor.JSArray;
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
+
+import com.getcapacitor.Bridge;
 import com.getcapacitor.JSObject;
+import com.getcapacitor.Logger;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
+import com.getcapacitor.CapConfig;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import com.getcapacitor.annotation.Permission;
+
 import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.IntercomPushManager;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
 import io.intercom.android.sdk.push.IntercomPushClient;
+import io.intercom.android.sdk.carousel.CarouselView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-@CapacitorPlugin(name = "Intercom")
+@CapacitorPlugin(name = "Intercom", permissions = @Permission(strings = {}, alias = "receive"))
 public class IntercomPlugin extends Plugin {
-
     private final IntercomPushClient intercomPushClient = new IntercomPushClient();
 
     @Override
     public void load() {
-        //
-        // get config
-        String apiKey = this.getConfig().getString("androidApiKey", "ADD_IN_CAPACITOR_CONFIG_JSON");
-        String appId = this.getConfig().getString("androidAppId", "ADD_IN_CAPACITOR_CONFIG_JSON");
+        // Set up Intercom
+        setUpIntercom();
 
-        //
-        // init intercom sdk
-        Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
-
-        //
         // load parent
         super.load();
+    }
+
+    @Override
+    public void handleOnStart() {
+        super.handleOnStart();
+        bridge.getActivity().runOnUiThread(new Runnable() {
+            @Override public void run() {
+                //We also initialize intercom here just in case it has died. If Intercom is already set up, this won't do anything.
+                setUpIntercom();
+                Intercom.client().handlePushMessage();
+            }
+        });
     }
 
     @PluginMethod
@@ -205,6 +221,22 @@ public class IntercomPlugin extends Plugin {
             }
         } catch (Exception e) {
             call.reject("Failed to handle received Intercom push", e);
+        }
+    }
+
+    private void setUpIntercom() {
+        try {
+            // get config
+            CapConfig config = this.bridge.getConfig();
+            String apiKey = config.getPluginConfiguration("Intercom").getString("android-apiKey");
+            String appId = config.getPluginConfiguration("Intercom").getString("android-appId");
+            String senderId = config.getPluginConfiguration("Intercom").getString("android-senderId");
+
+            // init intercom sdk
+            IntercomPushManager.cacheSenderId(this.bridge.getContext(), senderId);
+            Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
+        } catch (Exception e) {
+            Logger.error("Intercom", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
         }
     }
 
