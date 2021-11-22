@@ -1,33 +1,26 @@
 package com.getcapacitor.community.intercom;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
-
-import com.getcapacitor.Bridge;
+import com.getcapacitor.CapConfig;
+import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Logger;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
-import com.getcapacitor.CapConfig;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
-
-import io.intercom.android.sdk.Intercom;
-import io.intercom.android.sdk.IntercomPushManager;
-import io.intercom.android.sdk.UserAttributes;
-import io.intercom.android.sdk.identity.Registration;
-import io.intercom.android.sdk.push.IntercomPushClient;
-import io.intercom.android.sdk.carousel.CarouselView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+
+import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.IntercomPushManager;
+import io.intercom.android.sdk.UserAttributes;
+import io.intercom.android.sdk.identity.Registration;
+import io.intercom.android.sdk.push.IntercomPushClient;
 
 @CapacitorPlugin(name = "Intercom", permissions = @Permission(strings = {}, alias = "receive"))
 public class IntercomPlugin extends Plugin {
@@ -46,7 +39,8 @@ public class IntercomPlugin extends Plugin {
     public void handleOnStart() {
         super.handleOnStart();
         bridge.getActivity().runOnUiThread(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 //We also initialize intercom here just in case it has died. If Intercom is already set up, this won't do anything.
                 setUpIntercom();
                 Intercom.client().handlePushMessage();
