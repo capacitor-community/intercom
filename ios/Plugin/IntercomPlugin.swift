@@ -26,16 +26,16 @@ public class IntercomPlugin: CAPPlugin {
 
   @objc func registerIdentifiedUser(_ call: CAPPluginCall) {
     let userId = call.getString("userId")
-    let userEmail = call.getString("userEmail")
+    let email = call.getString("email")
 
-    if (userId != nil && userEmail != nil) {
-      Intercom.registerUser(withUserId: userId!, email: userEmail!)
+    if (userId != nil && email != nil) {
+      Intercom.registerUser(withUserId: userId!, email: email!)
       call.resolve()
     }else if (userId != nil) {
       Intercom.registerUser(withUserId: userId!)
       call.resolve()
-    }else if (userEmail != nil) {
-      Intercom.registerUser(withEmail: userEmail!)
+    }else if (email != nil) {
+      Intercom.registerUser(withEmail: email!)
       call.resolve()
     }else{
       call.reject("No user registered. You must supply an email, userId or both")
