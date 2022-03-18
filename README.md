@@ -101,7 +101,9 @@ import { PushNotifications } from '@capacitor/push-notifications';
 PushNotifications.register();
 
 // Register an indetified user
-Intercom.registerIdentifiedUser({ userId: 123456 }); // or email or both
+Intercom.registerIdentifiedUser({ userId: 123456 });
+Intercom.registerIdentifiedUser({ email: 'test@example.com' });
+Intercom.registerIdentifiedUser({ userId: 123456, email: 'test@example.com' });
 
 // Register a log event
 Intercom.logEvent({ name: 'my-event', data: { pi: 3.14 } });
