@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source = { :git => package['repository']['url'], :tag => s.version.to_s }
   s.source_files = 'ios/Plugin/**/*.{swift,h,m,c,cc,mm,cpp}'
   s.ios.deployment_target  = '12.0'
-  s.dependency 'Capacitor', '~> 3.0'
-  s.dependency 'Intercom', '~> 10.0'
+  s.dependency 'Capacitor', '~> 3.4.3'
+  s.dependency 'Intercom', '~> 11.2.0'
   s.swift_version = '5.1'
 end
