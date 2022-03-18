@@ -1,37 +1,51 @@
-package com.getcapacitor.community.intercom.intercom;
+package com.getcapacitor.community.intercom;
 
+import com.getcapacitor.CapConfig;
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
+import com.getcapacitor.Logger;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
-import io.intercom.android.sdk.Intercom;
-import io.intercom.android.sdk.UserAttributes;
-import io.intercom.android.sdk.identity.Registration;
+import com.getcapacitor.annotation.Permission;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-@CapacitorPlugin(name = "Intercom")
+import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.IntercomPushManager;
+import io.intercom.android.sdk.UserAttributes;
+import io.intercom.android.sdk.identity.Registration;
+import io.intercom.android.sdk.push.IntercomPushClient;
+
+@CapacitorPlugin(name = "Intercom", permissions = @Permission(strings = {}, alias = "receive"))
 public class IntercomPlugin extends Plugin {
+    private final IntercomPushClient intercomPushClient = new IntercomPushClient();
 
     @Override
     public void load() {
-        //
-        // get config
-        String apiKey = this.getConfig().getString("androidApiKey", "ADD_IN_CAPACITOR_CONFIG_JSON");
-        String appId = this.getConfig().getString("androidAppId", "ADD_IN_CAPACITOR_CONFIG_JSON");
+        // Set up Intercom
+        setUpIntercom();
 
-        //
-        // init intercom sdk
-        Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
-
-        //
         // load parent
         super.load();
+    }
+
+    @Override
+    public void handleOnStart() {
+        super.handleOnStart();
+        bridge.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //We also initialize intercom here just in case it has died. If Intercom is already set up, this won't do anything.
+                setUpIntercom();
+                Intercom.client().handlePushMessage();
+            }
+        });
     }
 
     @PluginMethod
@@ -175,6 +189,47 @@ public class IntercomPlugin extends Plugin {
         int value = Integer.parseInt(stringValue);
         Intercom.client().setBottomPadding(value);
         call.resolve();
+    }
+
+    @PluginMethod
+    public void sendPushTokenToIntercom(PluginCall call) {
+        String token = call.getString("value");
+        try {
+            intercomPushClient.sendTokenToIntercom(this.getActivity().getApplication(), token);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("Failed to send push token to Intercom", e);
+        }
+    }
+
+    @PluginMethod
+    public void receivePush(PluginCall call) {
+        try {
+            JSObject notificationData = call.getData();
+            Map message = mapFromJSON(notificationData);
+            if (intercomPushClient.isIntercomPush(message)) {
+                intercomPushClient.handlePush(this.getActivity().getApplication(), message);
+                call.resolve();
+            } else {
+                call.reject("Notification data was not a valid Intercom push message");
+            }
+        } catch (Exception e) {
+            call.reject("Failed to handle received Intercom push", e);
+        }
+    }
+
+    private void setUpIntercom() {
+        try {
+            // get config
+            CapConfig config = this.bridge.getConfig();
+            String apiKey = config.getPluginConfiguration("Intercom").getString("androidApiKey");
+            String appId = config.getPluginConfiguration("Intercom").getString("androidAppId");
+
+            // init intercom sdk
+            Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
+        } catch (Exception e) {
+            Logger.error("Intercom", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
+        }
     }
 
     private static Map<String, Object> mapFromJSON(JSObject jsonObject) {
