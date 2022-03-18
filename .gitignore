@@ -1,3 +1,5 @@
+dist/
+
 # node files
 node_modules
 
