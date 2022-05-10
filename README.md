@@ -16,6 +16,23 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
+## Sponsors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://intenseloop.com">
+      <img src="https://static.intenseloop.com/assets/logo-512x512.png" width="40" />
+      </a>
+    </td>
+    <td>
+      <a href="https://intenseloop.com">
+      Intenseloop
+      </a>
+    </td>
+  </tr>
+</table>
+
 ## Maintainers
 
 | Maintainer   | GitHub                                  | Social                                    |
