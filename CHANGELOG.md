@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.3](https://github.com/capacitor-community/intercom/compare/v3.0.1...v3.0.3) (2022-05-10)
+
+
+### Features
+
+* **intercom:** allow sending of push token / receiving push notifs ([50299dc](https://github.com/capacitor-community/intercom/commit/50299dc6c8ea11db480d17ee1550096a6bc934a1))
+
+
+### Bug Fixes
+
+* **intercom:** fix imports ([20623c7](https://github.com/capacitor-community/intercom/commit/20623c7006098c0a1b477eafc26c3e4b04d8d64d))
+* **register user ios:** get email from correct field ([1aea48f](https://github.com/capacitor-community/intercom/commit/1aea48f901accb4fb851d24575c3ef8baf874ed7))
+* unlock capacitor version ([45f1703](https://github.com/capacitor-community/intercom/commit/45f170392d47e4f56a54b2b771620196206a49da))
+
 ### [3.0.1](https://github.com/capacitor-community/intercom/compare/v3.0.0...v3.0.1) (2021-10-13)
 
 
