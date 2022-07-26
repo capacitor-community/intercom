@@ -171,4 +171,13 @@ public class IntercomPlugin: CAPPlugin {
         call.reject("Enter a value for padding bottom")
       }
   }
+
+  @objc func displayArticle(_ call: CAPPluginCall) {
+    if let articleId = call.getString("articleId") {
+      Intercom.presentArticle(articleId)
+      call.resolve()
+    } else {
+      call.reject("articleId not provided to presentArticle.")
+    }
+  }
 }
