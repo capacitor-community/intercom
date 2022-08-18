@@ -51,7 +51,7 @@ public class IntercomPlugin extends Plugin {
     @PluginMethod
     public void registerIdentifiedUser(PluginCall call) {
         String email = call.getString("email");
-        String userId = call.getString("userId");
+        String userId = call.getData().get("userId").toString();
 
         Registration registration = new Registration();
 

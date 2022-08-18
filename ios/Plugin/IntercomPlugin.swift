@@ -25,14 +25,14 @@ public class IntercomPlugin: CAPPlugin {
   }
 
   @objc func registerIdentifiedUser(_ call: CAPPluginCall) {
-    let userId = call.getString("userId")
+    let userId = call.getAny("userId")
     let email = call.getString("email")
 
     if (userId != nil && email != nil) {
-      Intercom.registerUser(withUserId: userId!, email: email!)
+        Intercom.registerUser(withUserId: userId! as! String, email: email!)
       call.resolve()
     }else if (userId != nil) {
-      Intercom.registerUser(withUserId: userId!)
+        Intercom.registerUser(withUserId: userId! as! String)
       call.resolve()
     }else if (email != nil) {
       Intercom.registerUser(withEmail: email!)
@@ -172,3 +172,4 @@ public class IntercomPlugin: CAPPlugin {
       }
   }
 }
+
