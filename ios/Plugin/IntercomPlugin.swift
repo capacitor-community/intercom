@@ -29,10 +29,10 @@ public class IntercomPlugin: CAPPlugin {
     let email = call.getString("email")
 
     if (userId != nil && email != nil) {
-        Intercom.registerUser(withUserId: userId! as! String, email: email!)
+        Intercom.registerUser(withUserId: String(describing: userId), email: email!)
       call.resolve()
     }else if (userId != nil) {
-        Intercom.registerUser(withUserId: userId! as! String)
+        Intercom.registerUser(withUserId: String(describing: userId))
       call.resolve()
     }else if (email != nil) {
       Intercom.registerUser(withEmail: email!)
