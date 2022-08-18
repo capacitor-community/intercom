@@ -49,7 +49,7 @@ public class IntercomPlugin extends Plugin {
     }
 
     @PluginMethod
-    public void registerIdentifiedUser(PluginCall call) {
+    public void registerIdentifiedUser(PluginCall call) throws JSONException {
         String email = call.getString("email");
         String userId = call.getData().get("userId").toString();
 
