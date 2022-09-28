@@ -220,6 +220,13 @@ public class IntercomPlugin extends Plugin {
         }
     }
 
+    @PluginMethod
+    public void displayArticle(PluginCall call) {
+        String articleId = call.getString("articleId");
+        Intercom.client().displayArticle(articleId);
+        call.resolve();
+    }
+
     private void setUpIntercom() {
         try {
             // get config
