@@ -10,6 +10,8 @@ import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -49,9 +51,9 @@ public class IntercomPlugin extends Plugin {
     }
 
     @PluginMethod
-    public void registerIdentifiedUser(PluginCall call) {
+    public void registerIdentifiedUser(PluginCall call) throws JSONException {
         String email = call.getString("email");
-        String userId = call.getString("userId");
+        String userId = call.getData().get("userId").toString();
 
         Registration registration = new Registration();
 
