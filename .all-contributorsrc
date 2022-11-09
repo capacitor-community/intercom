@@ -121,6 +121,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "scr2em",
+      "name": "Mohamed Abdelgwad",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4671486?v=4",
+      "profile": "https://scr2em.github.io/portfolio/",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7
