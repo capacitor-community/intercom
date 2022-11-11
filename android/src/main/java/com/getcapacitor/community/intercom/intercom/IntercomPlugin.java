@@ -51,9 +51,9 @@ public class IntercomPlugin extends Plugin {
     }
 
     @PluginMethod
-    public void registerIdentifiedUser(PluginCall call) throws JSONException {
+    public void registerIdentifiedUser(PluginCall call) {
         String email = call.getString("email");
-        String userId = call.getData().get("userId").toString();
+        String userId = call.getData().getString("userId");
 
         Registration registration = new Registration();
 
