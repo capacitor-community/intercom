@@ -130,6 +130,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "shark404",
+      "name": "Nathan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4898049?v=4",
+      "profile": "https://github.com/shark404",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7
