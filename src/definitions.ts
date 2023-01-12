@@ -46,5 +46,5 @@ export interface IntercomUserUpdateOptions {
   name?: string;
   phone?: string;
   languageOverride?: string;
-  customAttributes: { [key: string]: any };
+  customAttributes?: { [key: string]: any };
 }
