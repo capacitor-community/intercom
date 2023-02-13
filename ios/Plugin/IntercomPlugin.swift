@@ -27,6 +27,15 @@ public class IntercomPlugin: CAPPlugin {
         }
         Intercom.setDeviceToken(deviceToken)
     }
+
+    @objc func loadWithKeys(_ call: CAPPluginCall) {
+        let appId = call.getString("appId")  as? String ?? "NO_APP_ID_PASSED"
+        let apiKey = call.getString("apiKeyIOS") as? String ?? "NO_API_KEY_PASSED"
+        
+        Intercom.setApiKey(apiKey, forAppId: appId)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didRegisterWithToken(notification:)), name: Notification.Name(CAPNotifications.DidRegisterForRemoteNotificationsWithDeviceToken.name()), object: nil)
+    }
     
     @objc func registerIdentifiedUser(_ call: CAPPluginCall) {
         let userId = call.getString("userId")

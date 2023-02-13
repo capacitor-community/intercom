@@ -1,4 +1,9 @@
 export interface IntercomPlugin {
+  loadWithKeys(options: {
+    appId?: string;
+    apiKeyIOS?: string;
+    apiKeyAndroid?: string;
+  }): Promise<void>;
   registerIdentifiedUser(options: {
     userId?: string;
     email?: string;
