@@ -149,6 +149,15 @@
         "code",
         "maintenance"
       ]
+    },
+    {
+      "login": "pavloPyrig0",
+      "name": "Pavlo Pyrig",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10965335?v=4",
+      "profile": "https://github.com/pavloPyrig0",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
