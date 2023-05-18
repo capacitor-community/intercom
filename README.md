@@ -12,7 +12,7 @@
   <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/dw/@capacitor-community/intercom?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/v/@capacitor-community/intercom?style=flat-square" /></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors"><img src="https://img.shields.io/badge/all%20contributors-16-orange?style=flat-square" /></a>
+<a href="#contributors"><img src="https://img.shields.io/badge/all%20contributors-17-orange?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
@@ -225,6 +225,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://cwoebker.com/"><img src="https://avatars.githubusercontent.com/u/885085?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Cecil Wöbker</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=cwoebker" title="Code">💻</a> <a href="#maintenance-cwoebker" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://github.com/pavloPyrig0"><img src="https://avatars.githubusercontent.com/u/10965335?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Pavlo Pyrig</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=pavloPyrig0" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dupiesdupreez"><img src="https://avatars.githubusercontent.com/u/6910085?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Ruan</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=dupiesdupreez" title="Code">💻</a></td>
   </tr>
 </table>
 
