@@ -36,6 +36,17 @@ public class IntercomPlugin extends Plugin {
         // load parent
         super.load();
     }
+    
+    @PluginMethod()
+    public void loadWithKeys(PluginCall call) {
+        String appId = call.getString("appId", "NO_APP_ID_PASSED");
+        String apiKey = call.getString("apiKeyAndroid", "NO_API_KEY_PASSED");
+
+        Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
+     
+        // load parent
+        super.load();
+    }
 
     @Override
     public void handleOnStart() {
@@ -51,9 +62,9 @@ public class IntercomPlugin extends Plugin {
     }
 
     @PluginMethod
-    public void registerIdentifiedUser(PluginCall call) throws JSONException {
+    public void registerIdentifiedUser(PluginCall call) {
         String email = call.getString("email");
-        String userId = call.getData().get("userId").toString();
+        String userId = call.getData().getString("userId");
 
         Registration registration = new Registration();
 

@@ -1,4 +1,9 @@
 export interface IntercomPlugin {
+  loadWithKeys(options: {
+    appId?: string;
+    apiKeyIOS?: string;
+    apiKeyAndroid?: string;
+  }): Promise<void>;
   registerIdentifiedUser(options: {
     userId?: string;
     email?: string;
@@ -46,5 +51,5 @@ export interface IntercomUserUpdateOptions {
   name?: string;
   phone?: string;
   languageOverride?: string;
-  customAttributes: { [key: string]: any };
+  customAttributes?: { [key: string]: any };
 }
