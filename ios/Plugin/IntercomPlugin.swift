@@ -116,8 +116,8 @@ public class IntercomPlugin: CAPPlugin {
     }
     
     @objc func displayMessenger(_ call: CAPPluginCall) {
-        Intercom.presentMessenger();
-        call.resolve()
+           Intercom.present();
+           call.resolve()
     }
     
     @objc func displayMessageComposer(_ call: CAPPluginCall) {
@@ -130,7 +130,7 @@ public class IntercomPlugin: CAPPlugin {
     }
     
     @objc func displayHelpCenter(_ call: CAPPluginCall) {
-        Intercom.presentHelpCenter()
+        Intercom.present(.helpCenter)
         call.resolve()
     }
     
@@ -161,7 +161,8 @@ public class IntercomPlugin: CAPPlugin {
     
     @objc func displayCarousel(_ call: CAPPluginCall) {
         if let carouselId = call.getString("carouselId") {
-            Intercom.presentCarousel(carouselId)
+            let carouselToPresent = Intercom.Content.carousel(id: carouselId)
+            Intercom.presentContent(carouselToPresent)
             call.resolve()
         }else{
             call.reject("carouselId not provided to displayCarousel.")
@@ -195,7 +196,8 @@ public class IntercomPlugin: CAPPlugin {
     
     @objc func displayArticle(_ call: CAPPluginCall) {
         if let articleId = call.getString("articleId") {
-            Intercom.presentArticle(articleId)
+            let articleToPresent = Intercom.Content.article(id: articleId)
+           Intercom.presentContent(articleToPresent)
             call.resolve()
         } else {
             call.reject("articleId not provided to presentArticle.")

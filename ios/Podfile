@@ -9,10 +9,10 @@ end
 
 target 'Plugin' do
   capacitor_pods
-  pod 'Intercom'
+  pod 'Intercom', '>= 16.0.0'
 end
 
 target 'PluginTests' do
   capacitor_pods
-  pod 'Intercom'
+  pod 'Intercom', '>= 16.0.0'
 end
