@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/capacitor-community/intercom/compare/v5.0.0...v5.0.1) (2024-03-15)
+
+
+### Features
+
+* upgrade to intercom ios sdk 16.6.0 ([1e1f694](https://github.com/capacitor-community/intercom/commit/1e1f6946c56f452c1ab1ba454484b801c854826a))
+* upgrade typescript to 4.7.4 ([72135a2](https://github.com/capacitor-community/intercom/commit/72135a27ff50eca874d787d2d7b98590161a7abd))
+
 ## [5.0.0](https://github.com/capacitor-community/intercom/compare/v4.0.2...v5.0.0) (2023-05-18)
 
 ### [4.0.2](https://github.com/capacitor-community/intercom/compare/v4.0.1...v4.0.2) (2022-12-14)
