@@ -34,7 +34,7 @@ public class IntercomPlugin: CAPPlugin {
         
         Intercom.setApiKey(apiKey, forAppId: appId)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didRegisterWithToken(notification:)), name: Notification.Name(CAPNotifications.DidRegisterForRemoteNotificationsWithDeviceToken.name()), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didRegisterWithToken(notification:)), name: Notification.Name.capacitorDidRegisterForRemoteNotifications, object: nil)
     }
     
     @objc func registerIdentifiedUser(_ call: CAPPluginCall) {
