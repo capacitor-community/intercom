@@ -29,8 +29,8 @@ public class IntercomPlugin: CAPPlugin {
     }
 
     @objc func loadWithKeys(_ call: CAPPluginCall) {
-        let appId = call.getString("appId")  as? String ?? "NO_APP_ID_PASSED"
-        let apiKey = call.getString("apiKeyIOS") as? String ?? "NO_API_KEY_PASSED"
+        let appId = call.getString("appId") ?? "NO_APP_ID_PASSED"
+        let apiKey = call.getString("apiKeyIOS") ?? "NO_API_KEY_PASSED"
         
         Intercom.setApiKey(apiKey, forAppId: appId)
         
