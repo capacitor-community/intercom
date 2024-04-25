@@ -167,6 +167,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "RickJeroen",
+      "name": "RickJeroen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15357844?v=4",
+      "profile": "https://github.com/RickJeroen",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7
