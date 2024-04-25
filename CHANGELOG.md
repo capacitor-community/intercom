@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/capacitor-community/intercom/compare/v5.0.1...v6.0.0) (2024-04-25)
+
+
+### Bug Fixes
+
+* 'DidRegisterForRemoteNotificationsWithDeviceToken' is deprecated ([61228d0](https://github.com/capacitor-community/intercom/commit/61228d029d20a708ac772279beda11ae3a594dec))
+
 ### [5.0.1](https://github.com/capacitor-community/intercom/compare/v5.0.0...v5.0.1) (2024-03-15)
 
 
