@@ -8,6 +8,8 @@ import Intercom
  */
 @objc(IntercomPlugin)
 public class IntercomPlugin: CAPPlugin {
+    private var observers: [NSObjectProtocol] = []
+    
     public override func load() {
         let apiKey = getConfig().getString("iosApiKey") ?? "ADD_IN_CAPACITOR_CONFIG_JSON"
         let appId = getConfig().getString("iosAppId") ?? "ADD_IN_CAPACITOR_CONFIG_JSON"
@@ -18,6 +20,22 @@ public class IntercomPlugin: CAPPlugin {
 #endif
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didRegisterWithToken(notification:)), name: Notification.Name.capacitorDidRegisterForRemoteNotifications, object: nil)
+        
+        observers.append(NotificationCenter.default.addObserver(forName: .IntercomWindowDidShow, object: nil, queue: OperationQueue.main) { [weak self] (_) in
+            self?.notifyListeners("windowDidShow", data: nil)
+        })
+        
+        observers.append(NotificationCenter.default.addObserver(forName: .IntercomWindowDidHide, object: nil, queue: OperationQueue.main) { [weak self] (_) in
+            self?.notifyListeners("windowDidHide", data: nil)
+        })
+
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        for observer in observers {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     
