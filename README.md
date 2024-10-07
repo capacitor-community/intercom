@@ -143,27 +143,27 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 
 <docgen-index>
 
-- [`loadWithKeys(...)`](#loadwithkeys)
-- [`registerIdentifiedUser(...)`](#registeridentifieduser)
-- [`registerUnidentifiedUser()`](#registerunidentifieduser)
-- [`updateUser(...)`](#updateuser)
-- [`logout()`](#logout)
-- [`logEvent(...)`](#logevent)
-- [`displayMessenger()`](#displaymessenger)
-- [`displayMessageComposer(...)`](#displaymessagecomposer)
-- [`displayHelpCenter()`](#displayhelpcenter)
-- [`hideMessenger()`](#hidemessenger)
-- [`displayLauncher()`](#displaylauncher)
-- [`hideLauncher()`](#hidelauncher)
-- [`displayInAppMessages()`](#displayinappmessages)
-- [`hideInAppMessages()`](#hideinappmessages)
-- [`displayCarousel(...)`](#displaycarousel)
-- [`setUserHash(...)`](#setuserhash)
-- [`setBottomPadding(...)`](#setbottompadding)
-- [`sendPushTokenToIntercom(...)`](#sendpushtokentointercom)
-- [`receivePush(...)`](#receivepush)
-- [`displayArticle(...)`](#displayarticle)
-- [Interfaces](#interfaces)
+* [`loadWithKeys(...)`](#loadwithkeys)
+* [`registerIdentifiedUser(...)`](#registeridentifieduser)
+* [`registerUnidentifiedUser()`](#registerunidentifieduser)
+* [`updateUser(...)`](#updateuser)
+* [`logout()`](#logout)
+* [`logEvent(...)`](#logevent)
+* [`displayMessenger()`](#displaymessenger)
+* [`displayMessageComposer(...)`](#displaymessagecomposer)
+* [`displayHelpCenter()`](#displayhelpcenter)
+* [`hideMessenger()`](#hidemessenger)
+* [`displayLauncher()`](#displaylauncher)
+* [`hideLauncher()`](#hidelauncher)
+* [`displayInAppMessages()`](#displayinappmessages)
+* [`hideInAppMessages()`](#hideinappmessages)
+* [`displayCarousel(...)`](#displaycarousel)
+* [`setUserHash(...)`](#setuserhash)
+* [`setBottomPadding(...)`](#setbottompadding)
+* [`sendPushTokenToIntercom(...)`](#sendpushtokentointercom)
+* [`receivePush(...)`](#receivepush)
+* [`displayArticle(...)`](#displayarticle)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -173,208 +173,269 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 ### loadWithKeys(...)
 
 ```typescript
-loadWithKeys(options: { appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }) => Promise<void>
+loadWithKeys(options: { appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }) => any
 ```
 
 | Param         | Type                                                                         |
 | ------------- | ---------------------------------------------------------------------------- |
 | **`options`** | <code>{ appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### registerIdentifiedUser(...)
 
 ```typescript
-registerIdentifiedUser(options: { userId?: string; email?: string; }) => Promise<void>
+registerIdentifiedUser(options: { userId?: string; email?: string; }) => any
 ```
 
 | Param         | Type                                              |
 | ------------- | ------------------------------------------------- |
 | **`options`** | <code>{ userId?: string; email?: string; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### registerUnidentifiedUser()
 
 ```typescript
-registerUnidentifiedUser() => Promise<void>
+registerUnidentifiedUser() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### updateUser(...)
 
 ```typescript
-updateUser(options: IntercomUserUpdateOptions) => Promise<void>
+updateUser(options: IntercomUserUpdateOptions) => any
 ```
 
 | Param         | Type                                                                            |
 | ------------- | ------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#intercomuserupdateoptions">IntercomUserUpdateOptions</a></code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### logout()
 
 ```typescript
-logout() => Promise<void>
+logout() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### logEvent(...)
 
 ```typescript
-logEvent(options: { name: string; data?: any; }) => Promise<void>
+logEvent(options: { name: string; data?: any; }) => any
 ```
 
 | Param         | Type                                       |
 | ------------- | ------------------------------------------ |
 | **`options`** | <code>{ name: string; data?: any; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### displayMessenger()
 
 ```typescript
-displayMessenger() => Promise<void>
+displayMessenger() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### displayMessageComposer(...)
 
 ```typescript
-displayMessageComposer(options: { message: string; }) => Promise<void>
+displayMessageComposer(options: { message: string; }) => any
 ```
 
 | Param         | Type                              |
 | ------------- | --------------------------------- |
 | **`options`** | <code>{ message: string; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### displayHelpCenter()
 
 ```typescript
-displayHelpCenter() => Promise<void>
+displayHelpCenter() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### hideMessenger()
 
 ```typescript
-hideMessenger() => Promise<void>
+hideMessenger() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### displayLauncher()
 
 ```typescript
-displayLauncher() => Promise<void>
+displayLauncher() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### hideLauncher()
 
 ```typescript
-hideLauncher() => Promise<void>
+hideLauncher() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### displayInAppMessages()
 
 ```typescript
-displayInAppMessages() => Promise<void>
+displayInAppMessages() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### hideInAppMessages()
 
 ```typescript
-hideInAppMessages() => Promise<void>
+hideInAppMessages() => any
 ```
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### displayCarousel(...)
 
 ```typescript
-displayCarousel(options: { carouselId: string; }) => Promise<void>
+displayCarousel(options: { carouselId: string; }) => any
 ```
 
 | Param         | Type                                 |
 | ------------- | ------------------------------------ |
 | **`options`** | <code>{ carouselId: string; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### setUserHash(...)
 
 ```typescript
-setUserHash(options: { hmac: string; }) => Promise<void>
+setUserHash(options: { hmac: string; }) => any
 ```
 
 | Param         | Type                           |
 | ------------- | ------------------------------ |
 | **`options`** | <code>{ hmac: string; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### setBottomPadding(...)
 
 ```typescript
-setBottomPadding(options: { value: string; }) => Promise<void>
+setBottomPadding(options: { value: string; }) => any
 ```
 
 | Param         | Type                            |
 | ------------- | ------------------------------- |
 | **`options`** | <code>{ value: string; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### sendPushTokenToIntercom(...)
 
 ```typescript
-sendPushTokenToIntercom(options: { value: string; }) => Promise<void>
+sendPushTokenToIntercom(options: { value: string; }) => any
 ```
 
 | Param         | Type                            |
 | ------------- | ------------------------------- |
 | **`options`** | <code>{ value: string; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### receivePush(...)
 
 ```typescript
-receivePush(notification: IntercomPushNotificationData) => Promise<void>
+receivePush(notification: IntercomPushNotificationData) => any
 ```
 
 | Param              | Type                                                                                  |
 | ------------------ | ------------------------------------------------------------------------------------- |
 | **`notification`** | <code><a href="#intercompushnotificationdata">IntercomPushNotificationData</a></code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### displayArticle(...)
 
 ```typescript
-displayArticle(options: { articleId: string; }) => Promise<void>
+displayArticle(options: { articleId: string; }) => any
 ```
 
 | Param         | Type                                |
 | ------------- | ----------------------------------- |
 | **`options`** | <code>{ articleId: string; }</code> |
 
----
+**Returns:** <code>any</code>
+
+--------------------
+
 
 ### Interfaces
+
 
 #### IntercomUserUpdateOptions
 
@@ -386,6 +447,7 @@ displayArticle(options: { articleId: string; }) => Promise<void>
 | **`phone`**            | <code>string</code>                  |
 | **`languageOverride`** | <code>string</code>                  |
 | **`customAttributes`** | <code>{ [key: string]: any; }</code> |
+
 
 #### IntercomPushNotificationData
 
