@@ -39,36 +39,6 @@
 | ------------ | --------------------------------------- | ----------------------------------------- |
 | Stewan Silva | [stewones](https://github.com/stewones) | [@stewones](https://twitter.com/stewones) |
 
-## Notice 🚀
-
-We're starting fresh under an official org. If you were using the previous npm package `capacitor-intercom`, please update your package.json to `@capacitor-community/intercom`. Check out [changelog](/CHANGELOG.md) for more info.
-
-## Breaking changes from Capacitor v2 to v3
-
-- `UserUpdateOptions` option type becomes `IntercomUserUpdateOptions`
-- `IntercomPlugin` configuration key becomes `Intercom`
-- `android-apiKey` config key becomes `androidApiKey`
-- `android-appId` config key becomes `androidAppId`
-- `ios-apiKey` config key becomes `iosApiKey`
-- `ios-appId` config key becomes `iosAppId`
-- [Switch from CAPBridge to ApplicationDelegateProxy](https://capacitorjs.com/docs/updating/3-0#switch-from-capbridge-to-applicationdelegateproxy-in-application-events) in application events
-- remove the whole onCreate initialization from your app's `MainActivity.java`
-
-```diff
- public class MainActivity extends BridgeActivity {
--    @Override
--    public void onCreate(Bundle savedInstanceState) {
--        super.onCreate(savedInstanceState);
--
--        // Initializes the Bridge
--        this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
--            // Additional plugins you've installed go here
--            add(IntercomPlugin.class);
--        }});
--    }
- }
-```
-
 ## Installation
 
 Using npm:
@@ -88,25 +58,6 @@ Sync native files:
 ```bash
 npx cap sync
 ```
-
-## API
-
-- registerIdentifiedUser
-- registerUnidentifiedUser
-- updateUser
-- logout
-- logEvent
-- displayMessenger
-- displayMessageComposer
-- displayHelpCenter
-- hideMessenger
-- displayLauncher
-- hideLauncher
-- displayInAppMessages
-- hideInAppMessages
-- displayCarousel
-- setUserHash
-- setBottomPadding
 
 ## Usage
 
@@ -187,6 +138,305 @@ Intercom.setUserHash({ hmac: 'xyz' });
 Now you should be set to go. Try to run your client using `ionic cap run android --livereload`.
 
 > Tip: every time you change a native code you may need to clean up the cache (Build > Clean Project | Build > Rebuild Project) and then run the app again.
+
+## API
+
+<docgen-index>
+
+- [`loadWithKeys(...)`](#loadwithkeys)
+- [`registerIdentifiedUser(...)`](#registeridentifieduser)
+- [`registerUnidentifiedUser()`](#registerunidentifieduser)
+- [`updateUser(...)`](#updateuser)
+- [`logout()`](#logout)
+- [`logEvent(...)`](#logevent)
+- [`displayMessenger()`](#displaymessenger)
+- [`displayMessageComposer(...)`](#displaymessagecomposer)
+- [`displayHelpCenter()`](#displayhelpcenter)
+- [`hideMessenger()`](#hidemessenger)
+- [`displayLauncher()`](#displaylauncher)
+- [`hideLauncher()`](#hidelauncher)
+- [`displayInAppMessages()`](#displayinappmessages)
+- [`hideInAppMessages()`](#hideinappmessages)
+- [`displayCarousel(...)`](#displaycarousel)
+- [`setUserHash(...)`](#setuserhash)
+- [`setBottomPadding(...)`](#setbottompadding)
+- [`sendPushTokenToIntercom(...)`](#sendpushtokentointercom)
+- [`receivePush(...)`](#receivepush)
+- [`displayArticle(...)`](#displayarticle)
+- [Interfaces](#interfaces)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### loadWithKeys(...)
+
+```typescript
+loadWithKeys(options: { appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }) => Promise<void>
+```
+
+| Param         | Type                                                                         |
+| ------------- | ---------------------------------------------------------------------------- |
+| **`options`** | <code>{ appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }</code> |
+
+---
+
+### registerIdentifiedUser(...)
+
+```typescript
+registerIdentifiedUser(options: { userId?: string; email?: string; }) => Promise<void>
+```
+
+| Param         | Type                                              |
+| ------------- | ------------------------------------------------- |
+| **`options`** | <code>{ userId?: string; email?: string; }</code> |
+
+---
+
+### registerUnidentifiedUser()
+
+```typescript
+registerUnidentifiedUser() => Promise<void>
+```
+
+---
+
+### updateUser(...)
+
+```typescript
+updateUser(options: IntercomUserUpdateOptions) => Promise<void>
+```
+
+| Param         | Type                                                                            |
+| ------------- | ------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#intercomuserupdateoptions">IntercomUserUpdateOptions</a></code> |
+
+---
+
+### logout()
+
+```typescript
+logout() => Promise<void>
+```
+
+---
+
+### logEvent(...)
+
+```typescript
+logEvent(options: { name: string; data?: any; }) => Promise<void>
+```
+
+| Param         | Type                                       |
+| ------------- | ------------------------------------------ |
+| **`options`** | <code>{ name: string; data?: any; }</code> |
+
+---
+
+### displayMessenger()
+
+```typescript
+displayMessenger() => Promise<void>
+```
+
+---
+
+### displayMessageComposer(...)
+
+```typescript
+displayMessageComposer(options: { message: string; }) => Promise<void>
+```
+
+| Param         | Type                              |
+| ------------- | --------------------------------- |
+| **`options`** | <code>{ message: string; }</code> |
+
+---
+
+### displayHelpCenter()
+
+```typescript
+displayHelpCenter() => Promise<void>
+```
+
+---
+
+### hideMessenger()
+
+```typescript
+hideMessenger() => Promise<void>
+```
+
+---
+
+### displayLauncher()
+
+```typescript
+displayLauncher() => Promise<void>
+```
+
+---
+
+### hideLauncher()
+
+```typescript
+hideLauncher() => Promise<void>
+```
+
+---
+
+### displayInAppMessages()
+
+```typescript
+displayInAppMessages() => Promise<void>
+```
+
+---
+
+### hideInAppMessages()
+
+```typescript
+hideInAppMessages() => Promise<void>
+```
+
+---
+
+### displayCarousel(...)
+
+```typescript
+displayCarousel(options: { carouselId: string; }) => Promise<void>
+```
+
+| Param         | Type                                 |
+| ------------- | ------------------------------------ |
+| **`options`** | <code>{ carouselId: string; }</code> |
+
+---
+
+### setUserHash(...)
+
+```typescript
+setUserHash(options: { hmac: string; }) => Promise<void>
+```
+
+| Param         | Type                           |
+| ------------- | ------------------------------ |
+| **`options`** | <code>{ hmac: string; }</code> |
+
+---
+
+### setBottomPadding(...)
+
+```typescript
+setBottomPadding(options: { value: string; }) => Promise<void>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+---
+
+### sendPushTokenToIntercom(...)
+
+```typescript
+sendPushTokenToIntercom(options: { value: string; }) => Promise<void>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+---
+
+### receivePush(...)
+
+```typescript
+receivePush(notification: IntercomPushNotificationData) => Promise<void>
+```
+
+| Param              | Type                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| **`notification`** | <code><a href="#intercompushnotificationdata">IntercomPushNotificationData</a></code> |
+
+---
+
+### displayArticle(...)
+
+```typescript
+displayArticle(options: { articleId: string; }) => Promise<void>
+```
+
+| Param         | Type                                |
+| ------------- | ----------------------------------- |
+| **`options`** | <code>{ articleId: string; }</code> |
+
+---
+
+### Interfaces
+
+#### IntercomUserUpdateOptions
+
+| Prop                   | Type                                 |
+| ---------------------- | ------------------------------------ |
+| **`userId`**           | <code>string</code>                  |
+| **`email`**            | <code>string</code>                  |
+| **`name`**             | <code>string</code>                  |
+| **`phone`**            | <code>string</code>                  |
+| **`languageOverride`** | <code>string</code>                  |
+| **`customAttributes`** | <code>{ [key: string]: any; }</code> |
+
+#### IntercomPushNotificationData
+
+| Prop                            | Type                |
+| ------------------------------- | ------------------- |
+| **`conversation_id`**           | <code>string</code> |
+| **`message`**                   | <code>string</code> |
+| **`body`**                      | <code>string</code> |
+| **`author_name`**               | <code>string</code> |
+| **`image_url`**                 | <code>string</code> |
+| **`app_name`**                  | <code>string</code> |
+| **`receiver`**                  | <code>string</code> |
+| **`conversation_part_type`**    | <code>string</code> |
+| **`intercom_push_type`**        | <code>string</code> |
+| **`uri`**                       | <code>string</code> |
+| **`push_only_conversation_id`** | <code>string</code> |
+| **`instance_id`**               | <code>string</code> |
+| **`title`**                     | <code>string</code> |
+| **`priority`**                  | <code>number</code> |
+
+</docgen-api>
+
+## Notice 🚀
+
+We're starting fresh under an official org. If you were using the previous npm package `capacitor-intercom`, please update your package.json to `@capacitor-community/intercom`. Check out [changelog](/CHANGELOG.md) for more info.
+
+## Breaking changes from Capacitor v2 to v3
+
+- `UserUpdateOptions` option type becomes `IntercomUserUpdateOptions`
+- `IntercomPlugin` configuration key becomes `Intercom`
+- `android-apiKey` config key becomes `androidApiKey`
+- `android-appId` config key becomes `androidAppId`
+- `ios-apiKey` config key becomes `iosApiKey`
+- `ios-appId` config key becomes `iosAppId`
+- [Switch from CAPBridge to ApplicationDelegateProxy](https://capacitorjs.com/docs/updating/3-0#switch-from-capbridge-to-applicationdelegateproxy-in-application-events) in application events
+- remove the whole onCreate initialization from your app's `MainActivity.java`
+
+```diff
+ public class MainActivity extends BridgeActivity {
+-    @Override
+-    public void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-
+-        // Initializes the Bridge
+-        this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+-            // Additional plugins you've installed go here
+-            add(IntercomPlugin.class);
+-        }});
+-    }
+ }
+```
 
 ## License
 
