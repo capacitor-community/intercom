@@ -1,5 +1,13 @@
 package com.getcapacitor.community.intercom;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.getcapacitor.CapConfig;
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
@@ -10,7 +18,9 @@ import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
 import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.IntercomError;
 import io.intercom.android.sdk.IntercomPushManager;
+import io.intercom.android.sdk.IntercomStatusCallback;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
 import io.intercom.android.sdk.push.IntercomPushClient;
@@ -23,6 +33,9 @@ import org.json.JSONException;
 
 @CapacitorPlugin(name = "Intercom", permissions = @Permission(strings = {}, alias = "receive"))
 public class IntercomPlugin extends Plugin {
+
+    private static final String EVENT_WINDOW_DID_SHOW = "windowDidShow";
+    private static final String EVENT_WINDOW_DID_HIDE = "windowDidHide";
 
     private final IntercomPushClient intercomPushClient = new IntercomPushClient();
 
@@ -61,6 +74,18 @@ public class IntercomPlugin extends Plugin {
                     }
                 }
             );
+    }
+
+    @Override
+    public void handleOnPause() {
+        super.handleOnPause();
+        notifyListeners(EVENT_WINDOW_DID_SHOW, null);
+    }
+
+    @Override
+    public void handleOnResume() {
+        super.handleOnResume();
+        notifyListeners(EVENT_WINDOW_DID_HIDE, null);
     }
 
     @PluginMethod

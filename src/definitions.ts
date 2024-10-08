@@ -1,3 +1,5 @@
+import type { PluginListenerHandle } from '@capacitor/core';
+
 export interface IntercomPlugin {
   loadWithKeys(options: {
     appId?: string;
@@ -26,6 +28,15 @@ export interface IntercomPlugin {
   sendPushTokenToIntercom(options: { value: string }): Promise<void>;
   receivePush(notification: IntercomPushNotificationData): Promise<void>;
   displayArticle(options: { articleId: string }): Promise<void>;
+  addListener(
+    eventName: 'windowDidShow',
+    listenerFunc: () => void,
+  ): Promise<PluginListenerHandle>;
+  addListener(
+    eventName: 'windowDidHide',
+    listenerFunc: () => void,
+  ): Promise<PluginListenerHandle>;
+  removeAllListeners(): Promise<void>;
 }
 
 export interface IntercomPushNotificationData {
