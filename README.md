@@ -163,8 +163,8 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 * [`sendPushTokenToIntercom(...)`](#sendpushtokentointercom)
 * [`receivePush(...)`](#receivepush)
 * [`displayArticle(...)`](#displayarticle)
-* [`addListener(...)`](#addlistener)
-* [`addListener(...)`](#addlistener)
+* [`addListener('windowDidShow', ...)`](#addlistenerwindowdidshow-)
+* [`addListener('windowDidHide', ...)`](#addlistenerwindowdidhide-)
 * [`removeAllListeners()`](#removealllisteners)
 * [Interfaces](#interfaces)
 
@@ -176,14 +176,12 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 ### loadWithKeys(...)
 
 ```typescript
-loadWithKeys(options: { appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }) => any
+loadWithKeys(options: { appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }) => Promise<void>
 ```
 
 | Param         | Type                                                                         |
 | ------------- | ---------------------------------------------------------------------------- |
 | **`options`** | <code>{ appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -191,14 +189,12 @@ loadWithKeys(options: { appId?: string; apiKeyIOS?: string; apiKeyAndroid?: stri
 ### registerIdentifiedUser(...)
 
 ```typescript
-registerIdentifiedUser(options: { userId?: string; email?: string; }) => any
+registerIdentifiedUser(options: { userId?: string; email?: string; }) => Promise<void>
 ```
 
 | Param         | Type                                              |
 | ------------- | ------------------------------------------------- |
 | **`options`** | <code>{ userId?: string; email?: string; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -206,10 +202,8 @@ registerIdentifiedUser(options: { userId?: string; email?: string; }) => any
 ### registerUnidentifiedUser()
 
 ```typescript
-registerUnidentifiedUser() => any
+registerUnidentifiedUser() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -217,14 +211,12 @@ registerUnidentifiedUser() => any
 ### updateUser(...)
 
 ```typescript
-updateUser(options: IntercomUserUpdateOptions) => any
+updateUser(options: IntercomUserUpdateOptions) => Promise<void>
 ```
 
 | Param         | Type                                                                            |
 | ------------- | ------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#intercomuserupdateoptions">IntercomUserUpdateOptions</a></code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -232,10 +224,8 @@ updateUser(options: IntercomUserUpdateOptions) => any
 ### logout()
 
 ```typescript
-logout() => any
+logout() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -243,14 +233,12 @@ logout() => any
 ### logEvent(...)
 
 ```typescript
-logEvent(options: { name: string; data?: any; }) => any
+logEvent(options: { name: string; data?: any; }) => Promise<void>
 ```
 
 | Param         | Type                                       |
 | ------------- | ------------------------------------------ |
 | **`options`** | <code>{ name: string; data?: any; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -258,10 +246,8 @@ logEvent(options: { name: string; data?: any; }) => any
 ### displayMessenger()
 
 ```typescript
-displayMessenger() => any
+displayMessenger() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -269,14 +255,12 @@ displayMessenger() => any
 ### displayMessageComposer(...)
 
 ```typescript
-displayMessageComposer(options: { message: string; }) => any
+displayMessageComposer(options: { message: string; }) => Promise<void>
 ```
 
 | Param         | Type                              |
 | ------------- | --------------------------------- |
 | **`options`** | <code>{ message: string; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -284,10 +268,8 @@ displayMessageComposer(options: { message: string; }) => any
 ### displayHelpCenter()
 
 ```typescript
-displayHelpCenter() => any
+displayHelpCenter() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -295,10 +277,8 @@ displayHelpCenter() => any
 ### hideMessenger()
 
 ```typescript
-hideMessenger() => any
+hideMessenger() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -306,10 +286,8 @@ hideMessenger() => any
 ### displayLauncher()
 
 ```typescript
-displayLauncher() => any
+displayLauncher() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -317,10 +295,8 @@ displayLauncher() => any
 ### hideLauncher()
 
 ```typescript
-hideLauncher() => any
+hideLauncher() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -328,10 +304,8 @@ hideLauncher() => any
 ### displayInAppMessages()
 
 ```typescript
-displayInAppMessages() => any
+displayInAppMessages() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -339,10 +313,8 @@ displayInAppMessages() => any
 ### hideInAppMessages()
 
 ```typescript
-hideInAppMessages() => any
+hideInAppMessages() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -350,14 +322,12 @@ hideInAppMessages() => any
 ### displayCarousel(...)
 
 ```typescript
-displayCarousel(options: { carouselId: string; }) => any
+displayCarousel(options: { carouselId: string; }) => Promise<void>
 ```
 
 | Param         | Type                                 |
 | ------------- | ------------------------------------ |
 | **`options`** | <code>{ carouselId: string; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -365,14 +335,12 @@ displayCarousel(options: { carouselId: string; }) => any
 ### setUserHash(...)
 
 ```typescript
-setUserHash(options: { hmac: string; }) => any
+setUserHash(options: { hmac: string; }) => Promise<void>
 ```
 
 | Param         | Type                           |
 | ------------- | ------------------------------ |
 | **`options`** | <code>{ hmac: string; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -380,14 +348,12 @@ setUserHash(options: { hmac: string; }) => any
 ### setBottomPadding(...)
 
 ```typescript
-setBottomPadding(options: { value: string; }) => any
+setBottomPadding(options: { value: string; }) => Promise<void>
 ```
 
 | Param         | Type                            |
 | ------------- | ------------------------------- |
 | **`options`** | <code>{ value: string; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -395,14 +361,12 @@ setBottomPadding(options: { value: string; }) => any
 ### sendPushTokenToIntercom(...)
 
 ```typescript
-sendPushTokenToIntercom(options: { value: string; }) => any
+sendPushTokenToIntercom(options: { value: string; }) => Promise<void>
 ```
 
 | Param         | Type                            |
 | ------------- | ------------------------------- |
 | **`options`** | <code>{ value: string; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -410,14 +374,12 @@ sendPushTokenToIntercom(options: { value: string; }) => any
 ### receivePush(...)
 
 ```typescript
-receivePush(notification: IntercomPushNotificationData) => any
+receivePush(notification: IntercomPushNotificationData) => Promise<void>
 ```
 
 | Param              | Type                                                                                  |
 | ------------------ | ------------------------------------------------------------------------------------- |
 | **`notification`** | <code><a href="#intercompushnotificationdata">IntercomPushNotificationData</a></code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -425,46 +387,44 @@ receivePush(notification: IntercomPushNotificationData) => any
 ### displayArticle(...)
 
 ```typescript
-displayArticle(options: { articleId: string; }) => any
+displayArticle(options: { articleId: string; }) => Promise<void>
 ```
 
 | Param         | Type                                |
 | ------------- | ----------------------------------- |
 | **`options`** | <code>{ articleId: string; }</code> |
 
-**Returns:** <code>any</code>
-
 --------------------
 
 
-### addListener(...)
+### addListener('windowDidShow', ...)
 
 ```typescript
-addListener(eventName: 'windowDidShow', listenerFunc: () => void) => any
+addListener(eventName: 'windowDidShow', listenerFunc: () => void) => Promise<PluginListenerHandle>
 ```
 
 | Param              | Type                         |
 | ------------------ | ---------------------------- |
-| **`eventName`**    | <code>"windowDidShow"</code> |
+| **`eventName`**    | <code>'windowDidShow'</code> |
 | **`listenerFunc`** | <code>() =&gt; void</code>   |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
 --------------------
 
 
-### addListener(...)
+### addListener('windowDidHide', ...)
 
 ```typescript
-addListener(eventName: 'windowDidHide', listenerFunc: () => void) => any
+addListener(eventName: 'windowDidHide', listenerFunc: () => void) => Promise<PluginListenerHandle>
 ```
 
 | Param              | Type                         |
 | ------------------ | ---------------------------- |
-| **`eventName`**    | <code>"windowDidHide"</code> |
+| **`eventName`**    | <code>'windowDidHide'</code> |
 | **`listenerFunc`** | <code>() =&gt; void</code>   |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
 --------------------
 
@@ -472,10 +432,8 @@ addListener(eventName: 'windowDidHide', listenerFunc: () => void) => any
 ### removeAllListeners()
 
 ```typescript
-removeAllListeners() => any
+removeAllListeners() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -517,9 +475,9 @@ removeAllListeners() => any
 
 #### PluginListenerHandle
 
-| Prop         | Type                      |
-| ------------ | ------------------------- |
-| **`remove`** | <code>() =&gt; any</code> |
+| Prop         | Type                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 </docgen-api>
 
