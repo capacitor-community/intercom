@@ -1,4 +1,4 @@
-package com.getcapacitor.community.intercom;
+package com.getcapacitor.community.intercom.intercom;
 
 import android.app.Activity;
 import android.app.Application;
@@ -272,12 +272,27 @@ public class IntercomPlugin extends Plugin {
             String apiKey = config.getPluginConfiguration("Intercom").getString("androidApiKey");
             String appId = config.getPluginConfiguration("Intercom").getString("androidAppId");
 
+            switch (IntercomPushManager.getInstalledModuleType()) {
+                case FCM: {
+                    String senderId = config.getPluginConfiguration("Intercom").getString("senderId");
+
+                    // with FCM enabled, a senderId can be provided
+                    if(!senderId.isEmpty()) {
+                        IntercomPushManager.cacheSenderId(this.getActivity().getApplicationContext(), senderId);
+                    }
+                    break;
+                }
+            }
+
+
             // init intercom sdk
             Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
         } catch (Exception e) {
             Logger.error("Intercom", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
         }
     }
+
+
 
     private static Map<String, Object> mapFromJSON(JSObject jsonObject) {
         if (jsonObject == null) {

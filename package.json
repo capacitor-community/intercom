@@ -1,6 +1,6 @@
 {
-  "name": "@capacitor-community/intercom",
-  "version": "6.0.2",
+  "name": "@aquipa/intercom",
+  "version": "6.0.5",
   "description": "Enable Intercom features for Capacitor apps",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -57,7 +57,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "CapacitorCommunityIntercom.podspec"
+    "AquipaIntercom.podspec"
   ],
   "keywords": [
     "capacitor",
@@ -79,9 +79,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/capacitor-community/intercom"
+    "url": "git+https://github.com/aquipa/intercom.git"
   },
   "bugs": {
-    "url": "https://github.com/capacitor-community/intercom/issues"
+    "url": "https://github.com/aquipa/intercom/issues"
+  },
+  "dependencies": {
+    "typescript-eslint": "^8.12.2"
   }
 }
