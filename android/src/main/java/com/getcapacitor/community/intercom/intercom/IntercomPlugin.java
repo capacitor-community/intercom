@@ -219,8 +219,12 @@ public class IntercomPlugin extends Plugin {
     @PluginMethod
     public void setUserHash(PluginCall call) {
         String hmac = call.getString("hmac");
-        Intercom.client().setUserHash(hmac);
-        call.resolve();
+        try {
+            Intercom.client().setUserHash(hmac);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("Failed to send user hash to Intercom", e);
+        }
     }
 
     @PluginMethod
