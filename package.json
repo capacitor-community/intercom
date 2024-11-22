@@ -1,6 +1,6 @@
 {
   "name": "@aquipa/intercom",
-  "version": "6.0.5",
+  "version": "6.0.6",
   "description": "Enable Intercom features for Capacitor apps",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
