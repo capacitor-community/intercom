@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/capacitor-community/intercom/compare/v6.0.0...v7.0.0) (2025-02-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **android:** remove firebase dependency (#115)
+
+### Bug Fixes
+
+* **ios:** Pin intercom version to 16.x ([#116](https://github.com/capacitor-community/intercom/issues/116)) ([ec707b3](https://github.com/capacitor-community/intercom/commit/ec707b39fc9be5fa95206f2af6de0819d90fbec5))
+
+
+* **android:** remove firebase dependency ([#115](https://github.com/capacitor-community/intercom/issues/115)) ([f7ef072](https://github.com/capacitor-community/intercom/commit/f7ef072b62cc375945516357a937399131c8dfb3))
+
 ### [6.0.2](https://github.com/capacitor-community/intercom/compare/v6.0.0...v6.0.2) (2024-10-08)
 
 ### [6.0.1](https://github.com/capacitor-community/intercom/compare/v6.0.0...v6.0.1) (2024-10-07)
