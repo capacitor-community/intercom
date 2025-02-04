@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.1](https://github.com/capacitor-community/intercom/compare/v7.0.0...v7.0.1) (2025-02-04)
+
+
+### Bug Fixes
+
+* pin to intercom 18 ([e925d35](https://github.com/capacitor-community/intercom/commit/e925d35248850f097a19d1a95499fa2b505a0bbe))
+
 ## [7.0.0](https://github.com/capacitor-community/intercom/compare/v6.0.0...v7.0.0) (2025-02-02)
 
 
