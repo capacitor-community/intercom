@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.2](https://github.com/capacitor-community/intercom/compare/v7.0.1...v7.0.2) (2025-02-04)
+
+
+### Bug Fixes
+
+* change deployment target ([2b02f20](https://github.com/capacitor-community/intercom/commit/2b02f20e7e2dd5076b018bd39978554236980ac6))
+
 ### [7.0.1](https://github.com/capacitor-community/intercom/compare/v7.0.0...v7.0.1) (2025-02-04)
 
 
