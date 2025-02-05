@@ -1,6 +1,6 @@
 {
-  "name": "@aquipa/intercom",
-  "version": "6.0.6",
+  "name": "@capacitor-community/intercom",
+  "version": "7.0.2",
   "description": "Enable Intercom features for Capacitor apps",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -80,7 +80,7 @@
     "url": "git+https://github.com/aquipa/intercom.git"
   },
   "bugs": {
-    "url": "https://github.com/aquipa/intercom/issues"
+    "url": "https://github.com/capacitor-community/intercom/issues"
   },
   "dependencies": {
     "typescript-eslint": "^8.12.2"
