@@ -135,30 +135,30 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 
 <docgen-index>
 
-- [`loadWithKeys(...)`](#loadwithkeys)
-- [`registerIdentifiedUser(...)`](#registeridentifieduser)
-- [`registerUnidentifiedUser()`](#registerunidentifieduser)
-- [`updateUser(...)`](#updateuser)
-- [`logout()`](#logout)
-- [`logEvent(...)`](#logevent)
-- [`displayMessenger()`](#displaymessenger)
-- [`displayMessageComposer(...)`](#displaymessagecomposer)
-- [`displayHelpCenter()`](#displayhelpcenter)
-- [`hideMessenger()`](#hidemessenger)
-- [`displayLauncher()`](#displaylauncher)
-- [`hideLauncher()`](#hidelauncher)
-- [`displayInAppMessages()`](#displayinappmessages)
-- [`hideInAppMessages()`](#hideinappmessages)
-- [`displayCarousel(...)`](#displaycarousel)
-- [`setUserHash(...)`](#setuserhash)
-- [`setBottomPadding(...)`](#setbottompadding)
-- [`sendPushTokenToIntercom(...)`](#sendpushtokentointercom)
-- [`receivePush(...)`](#receivepush)
-- [`displayArticle(...)`](#displayarticle)
-- [`addListener('windowDidShow', ...)`](#addlistenerwindowdidshow-)
-- [`addListener('windowDidHide', ...)`](#addlistenerwindowdidhide-)
-- [`removeAllListeners()`](#removealllisteners)
-- [Interfaces](#interfaces)
+* [`loadWithKeys(...)`](#loadwithkeys)
+* [`registerIdentifiedUser(...)`](#registeridentifieduser)
+* [`registerUnidentifiedUser()`](#registerunidentifieduser)
+* [`updateUser(...)`](#updateuser)
+* [`logout()`](#logout)
+* [`logEvent(...)`](#logevent)
+* [`displayMessenger()`](#displaymessenger)
+* [`displayMessageComposer(...)`](#displaymessagecomposer)
+* [`displayHelpCenter()`](#displayhelpcenter)
+* [`hideMessenger()`](#hidemessenger)
+* [`displayLauncher()`](#displaylauncher)
+* [`hideLauncher()`](#hidelauncher)
+* [`displayInAppMessages()`](#displayinappmessages)
+* [`hideInAppMessages()`](#hideinappmessages)
+* [`displayCarousel(...)`](#displaycarousel)
+* [`setUserHash(...)`](#setuserhash)
+* [`setBottomPadding(...)`](#setbottompadding)
+* [`sendPushTokenToIntercom(...)`](#sendpushtokentointercom)
+* [`receivePush(...)`](#receivepush)
+* [`displayArticle(...)`](#displayarticle)
+* [`addListener('windowDidShow', ...)`](#addlistenerwindowdidshow-)
+* [`addListener('windowDidHide', ...)`](#addlistenerwindowdidhide-)
+* [`removeAllListeners()`](#removealllisteners)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -175,7 +175,8 @@ loadWithKeys(options: { appId?: string; apiKeyIOS?: string; apiKeyAndroid?: stri
 | ------------- | ---------------------------------------------------------------------------- |
 | **`options`** | <code>{ appId?: string; apiKeyIOS?: string; apiKeyAndroid?: string; }</code> |
 
----
+--------------------
+
 
 ### registerIdentifiedUser(...)
 
@@ -187,7 +188,8 @@ registerIdentifiedUser(options: { userId?: string; email?: string; }) => Promise
 | ------------- | ------------------------------------------------- |
 | **`options`** | <code>{ userId?: string; email?: string; }</code> |
 
----
+--------------------
+
 
 ### registerUnidentifiedUser()
 
@@ -195,7 +197,8 @@ registerIdentifiedUser(options: { userId?: string; email?: string; }) => Promise
 registerUnidentifiedUser() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### updateUser(...)
 
@@ -207,7 +210,8 @@ updateUser(options: IntercomUserUpdateOptions) => Promise<void>
 | ------------- | ------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#intercomuserupdateoptions">IntercomUserUpdateOptions</a></code> |
 
----
+--------------------
+
 
 ### logout()
 
@@ -215,7 +219,8 @@ updateUser(options: IntercomUserUpdateOptions) => Promise<void>
 logout() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### logEvent(...)
 
@@ -227,7 +232,8 @@ logEvent(options: { name: string; data?: any; }) => Promise<void>
 | ------------- | ------------------------------------------ |
 | **`options`** | <code>{ name: string; data?: any; }</code> |
 
----
+--------------------
+
 
 ### displayMessenger()
 
@@ -235,7 +241,8 @@ logEvent(options: { name: string; data?: any; }) => Promise<void>
 displayMessenger() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### displayMessageComposer(...)
 
@@ -247,7 +254,8 @@ displayMessageComposer(options: { message: string; }) => Promise<void>
 | ------------- | --------------------------------- |
 | **`options`** | <code>{ message: string; }</code> |
 
----
+--------------------
+
 
 ### displayHelpCenter()
 
@@ -255,7 +263,8 @@ displayMessageComposer(options: { message: string; }) => Promise<void>
 displayHelpCenter() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### hideMessenger()
 
@@ -263,7 +272,8 @@ displayHelpCenter() => Promise<void>
 hideMessenger() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### displayLauncher()
 
@@ -271,7 +281,8 @@ hideMessenger() => Promise<void>
 displayLauncher() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### hideLauncher()
 
@@ -279,7 +290,8 @@ displayLauncher() => Promise<void>
 hideLauncher() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### displayInAppMessages()
 
@@ -287,7 +299,8 @@ hideLauncher() => Promise<void>
 displayInAppMessages() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### hideInAppMessages()
 
@@ -295,7 +308,8 @@ displayInAppMessages() => Promise<void>
 hideInAppMessages() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### displayCarousel(...)
 
@@ -307,7 +321,8 @@ displayCarousel(options: { carouselId: string; }) => Promise<void>
 | ------------- | ------------------------------------ |
 | **`options`** | <code>{ carouselId: string; }</code> |
 
----
+--------------------
+
 
 ### setUserHash(...)
 
@@ -319,7 +334,8 @@ setUserHash(options: { hmac: string; }) => Promise<void>
 | ------------- | ------------------------------ |
 | **`options`** | <code>{ hmac: string; }</code> |
 
----
+--------------------
+
 
 ### setBottomPadding(...)
 
@@ -331,7 +347,8 @@ setBottomPadding(options: { value: string; }) => Promise<void>
 | ------------- | ------------------------------- |
 | **`options`** | <code>{ value: string; }</code> |
 
----
+--------------------
+
 
 ### sendPushTokenToIntercom(...)
 
@@ -343,7 +360,8 @@ sendPushTokenToIntercom(options: { value: string; }) => Promise<void>
 | ------------- | ------------------------------- |
 | **`options`** | <code>{ value: string; }</code> |
 
----
+--------------------
+
 
 ### receivePush(...)
 
@@ -355,7 +373,8 @@ receivePush(notification: IntercomPushNotificationData) => Promise<void>
 | ------------------ | ------------------------------------------------------------------------------------- |
 | **`notification`** | <code><a href="#intercompushnotificationdata">IntercomPushNotificationData</a></code> |
 
----
+--------------------
+
 
 ### displayArticle(...)
 
@@ -367,7 +386,8 @@ displayArticle(options: { articleId: string; }) => Promise<void>
 | ------------- | ----------------------------------- |
 | **`options`** | <code>{ articleId: string; }</code> |
 
----
+--------------------
+
 
 ### addListener('windowDidShow', ...)
 
@@ -382,7 +402,8 @@ addListener(eventName: 'windowDidShow', listenerFunc: () => void) => Promise<Plu
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
----
+--------------------
+
 
 ### addListener('windowDidHide', ...)
 
@@ -397,7 +418,8 @@ addListener(eventName: 'windowDidHide', listenerFunc: () => void) => Promise<Plu
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
----
+--------------------
+
 
 ### removeAllListeners()
 
@@ -405,9 +427,11 @@ addListener(eventName: 'windowDidHide', listenerFunc: () => void) => Promise<Plu
 removeAllListeners() => Promise<void>
 ```
 
----
+--------------------
+
 
 ### Interfaces
+
 
 #### IntercomUserUpdateOptions
 
@@ -419,6 +443,7 @@ removeAllListeners() => Promise<void>
 | **`phone`**            | <code>string</code>                  |
 | **`languageOverride`** | <code>string</code>                  |
 | **`customAttributes`** | <code>{ [key: string]: any; }</code> |
+
 
 #### IntercomPushNotificationData
 
@@ -438,6 +463,7 @@ removeAllListeners() => Promise<void>
 | **`instance_id`**               | <code>string</code> |
 | **`title`**                     | <code>string</code> |
 | **`priority`**                  | <code>number</code> |
+
 
 #### PluginListenerHandle
 
