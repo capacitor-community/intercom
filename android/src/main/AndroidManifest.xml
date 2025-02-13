@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <application>
-        <service android:name="com.getcapacitor.community.intercom.intercom.MessagingService" android:exported="false">
+        <service android:name="com.getcapacitor.community.intercom.MessagingService" android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

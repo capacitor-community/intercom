@@ -1,4 +1,4 @@
-package com.getcapacitor.community.intercom.intercom;
+package com.getcapacitor.community.intercom;
 
 import android.app.Activity;
 import android.app.Application;
@@ -295,8 +295,6 @@ public class IntercomPlugin extends Plugin {
             Logger.error("Intercom", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
         }
     }
-
-
 
     private static Map<String, Object> mapFromJSON(JSObject jsonObject) {
         if (jsonObject == null) {

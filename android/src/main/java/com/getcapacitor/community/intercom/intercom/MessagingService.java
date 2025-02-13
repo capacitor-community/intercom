@@ -1,4 +1,4 @@
-package com.getcapacitor.community.intercom.intercom;
+package com.getcapacitor.community.intercom;
 
 import androidx.annotation.NonNull;
 
