@@ -18,9 +18,18 @@
 
 ## Maintainers
 
-| Maintainer   | GitHub                                  | Social                                    |
-| ------------ | --------------------------------------- | ----------------------------------------- |
+| Maintainer   | GitHub                                  | Social                              |
+| ------------ | --------------------------------------- | ----------------------------------- |
 | Stewan Silva | [stewones](https://github.com/stewones) | [@stewones](https://x.com/stewones) |
+
+## Compatibility
+
+| Capacitor | Intercom iOS | Intercom Android | iOS Target | Android Target |
+| --------- | ------------ | ---------------- | ---------- | -------------- |
+| 7.x       | 18.x         | 15.x             | 15.0       | 35             |
+| 6.x       | 16.x         | 12.x             | 13.0       | 34             |
+
+> Note: This plugin follows semantic versioning aligned with [Capacitor](https://github.com/ionic-team/capacitor/blob/main/CHANGELOG.md) and maintains compatibility with Intercom SDKs ([iOS](https://github.com/intercom/intercom-ios/releases), [Android](https://github.com/intercom/intercom-android/releases)). If you encounter any issues due to versioning inconsistencies, please [open an issue](https://github.com/capacitor-community/intercom/issues/new?template=bug_report.md) to help us improve the plugin.
 
 ## Installation
 
