@@ -59,7 +59,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "AquipaIntercom.podspec"
+    "CapacitorCommunityIntercom.podspec"
   ],
   "keywords": [
     "capacitor",
@@ -78,7 +78,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aquipa/intercom.git"
+    "url": "https://github.com/capacitor-community/intercom"
   },
   "bugs": {
     "url": "https://github.com/capacitor-community/intercom/issues"
