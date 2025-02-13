@@ -20,7 +20,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    namespace "com.getcapacitor.community.intercom"
+    namespace "com.getcapacitor.community.intercom.intercom"
     defaultConfig {
         compileSdk project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 35
         minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 23
