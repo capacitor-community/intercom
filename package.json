@@ -51,7 +51,8 @@
     "rollup": "^4.30.1",
     "standard-version": "^9.5.0",
     "swiftlint": "^2.0.0",
-    "typescript": "5.6.3"
+    "typescript": "5.6.3",
+    "typescript-eslint": "^8.24.0"
   },
   "unpkg": "dist/plugin.js",
   "files": [
@@ -82,8 +83,5 @@
   },
   "bugs": {
     "url": "https://github.com/capacitor-community/intercom/issues"
-  },
-  "dependencies": {
-    "typescript-eslint": "^8.12.2"
   }
 }
