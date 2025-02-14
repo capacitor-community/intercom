@@ -23,8 +23,8 @@ public class IntercomPlugin: CAPPlugin {
 
         observers.append(
             NotificationCenter.default.addObserver(forName: .IntercomWindowDidShow, object: nil, queue: OperationQueue.main) { [weak self] (_) in
-            self?.notifyListeners("windowDidShow", data: nil)
-        })
+                self?.notifyListeners("windowDidShow", data: nil)
+            })
 
         observers.append(NotificationCenter.default.addObserver(forName: .IntercomWindowDidHide, object: nil, queue: OperationQueue.main) { [weak self] (_) in
             self?.notifyListeners("windowDidHide", data: nil)
