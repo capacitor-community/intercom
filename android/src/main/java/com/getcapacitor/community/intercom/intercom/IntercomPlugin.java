@@ -1,4 +1,4 @@
-package com.getcapacitor.community.intercom;
+package com.getcapacitor.community.intercom.intercom;
 
 import android.app.Activity;
 import android.app.Application;
@@ -219,8 +219,12 @@ public class IntercomPlugin extends Plugin {
     @PluginMethod
     public void setUserHash(PluginCall call) {
         String hmac = call.getString("hmac");
-        Intercom.client().setUserHash(hmac);
-        call.resolve();
+        try {
+            Intercom.client().setUserHash(hmac);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("Failed to send user hash to Intercom", e);
+        }
     }
 
     @PluginMethod
@@ -271,6 +275,17 @@ public class IntercomPlugin extends Plugin {
             CapConfig config = this.bridge.getConfig();
             String apiKey = config.getPluginConfiguration("Intercom").getString("androidApiKey");
             String appId = config.getPluginConfiguration("Intercom").getString("androidAppId");
+
+            switch (IntercomPushManager.getInstalledModuleType()) {
+                case FCM: {
+                    String senderId = config.getPluginConfiguration("Intercom").getString("senderId");
+                    // with FCM enabled, a senderId can be provided
+                    if(!senderId.isEmpty()) {
+                        IntercomPushManager.cacheSenderId(this.getActivity().getApplicationContext(), senderId);
+                    }
+                    break;
+                }
+            }
 
             // init intercom sdk
             Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
