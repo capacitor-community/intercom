@@ -348,8 +348,8 @@ setUserHash(options: { hmac: string; }) => Promise<void>
 setUserJwt(options: { jwt: string; }) => Promise<void>
 ```
 
-| Param         | Type                           |
-| ------------- | ------------------------------ |
+| Param         | Type                          |
+| ------------- | ----------------------------- |
 | **`options`** | <code>{ jwt: string; }</code> |
 
 --------------------
