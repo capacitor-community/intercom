@@ -26,7 +26,8 @@
     "release:minor": "standard-version release --release-as minor",
     "release:major": "standard-version release --release-as major",
     "contributors:add": "all-contributors add",
-    "contributors:gen": "all-contributors generate"
+    "contributors:gen": "all-contributors generate",
+    "prepare": "npm run build"
   },
   "author": "Stewan Silva",
   "license": "MIT",
