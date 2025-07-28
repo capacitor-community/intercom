@@ -78,6 +78,11 @@ export class IntercomWeb extends WebPlugin implements IntercomPlugin {
     throw this.unimplemented('Not implemented on web.');
   }
 
+  async setUserJwt(options: { jwt: string }): Promise<void> {
+    options;
+    throw this.unimplemented('Not implemented on web.');
+  }
+
   async setBottomPadding(options: { value: string }): Promise<void> {
     options;
     throw this.unimplemented('Not implemented on web.');

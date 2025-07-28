@@ -74,6 +74,10 @@ Intercom.displayMessageComposer({ message: 'Hello there!' });
 // Identity Verification
 // https://developers.intercom.com/installing-intercom/docs/ios-identity-verification
 Intercom.setUserHash({ hmac: 'xyz' });
+
+// Secure Your Messenger
+// https://developers.intercom.com/installing-intercom/ios/secure-your-messenger
+Intercom.setUserJwt({ jwt: 'xyz' });
 ```
 
 ## iOS setup
@@ -151,6 +155,7 @@ Now you should be set to go. Try to run your client using `ionic cap run android
 * [`hideInAppMessages()`](#hideinappmessages)
 * [`displayCarousel(...)`](#displaycarousel)
 * [`setUserHash(...)`](#setuserhash)
+* [`setUserJwt(...)`](#setuserjwt)
 * [`setBottomPadding(...)`](#setbottompadding)
 * [`sendPushTokenToIntercom(...)`](#sendpushtokentointercom)
 * [`receivePush(...)`](#receivepush)
@@ -333,6 +338,19 @@ setUserHash(options: { hmac: string; }) => Promise<void>
 | Param         | Type                           |
 | ------------- | ------------------------------ |
 | **`options`** | <code>{ hmac: string; }</code> |
+
+--------------------
+
+
+### setUserJwt(...)
+
+```typescript
+setUserJwt(options: { jwt: string; }) => Promise<void>
+```
+
+| Param         | Type                           |
+| ------------- | ------------------------------ |
+| **`options`** | <code>{ jwt: string; }</code> |
 
 --------------------
 
