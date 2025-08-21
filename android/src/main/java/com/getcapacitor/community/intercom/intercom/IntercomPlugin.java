@@ -224,6 +224,13 @@ public class IntercomPlugin extends Plugin {
     }
 
     @PluginMethod
+    public void setUserJwt(PluginCall call) {
+        String jwt = call.getString("jwt");
+        Intercom.client().setUserJwt(jwt);
+        call.resolve();
+    }
+
+    @PluginMethod
     public void setBottomPadding(PluginCall call) {
         String stringValue = call.getString("value");
         int value = Integer.parseInt(stringValue);

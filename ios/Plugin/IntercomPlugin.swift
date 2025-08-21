@@ -199,6 +199,18 @@ public class IntercomPlugin: CAPPlugin {
         }
     }
 
+    @objc func setUserJwt(_ call: CAPPluginCall) {
+        let jwt = call.getString("jwt")
+
+        if jwt != nil {
+            Intercom.setUserJwt(jwt!)
+            call.resolve()
+            print("jwt sent to intercom")
+        } else {
+            call.reject("No jwt found. Read intercom docs and generate it.")
+        }
+    }
+
     @objc func setBottomPadding(_ call: CAPPluginCall) {
 
         if let value = call.getString("value"),
