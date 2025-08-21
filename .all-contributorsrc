@@ -155,6 +155,13 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/9585787?v=4",
       "profile": "https://github.com/jpike88",
       "contributions": ["maintenance"]
+    },
+    {
+      "login": "vtorenaintermedia",
+      "name": "vtorenaintermedia",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128741423?v=4",
+      "profile": "https://github.com/vtorenaintermedia",
+      "contributions": ["code"]
     }
   ],
   "contributorsPerLine": 7
