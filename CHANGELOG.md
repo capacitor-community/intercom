@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/capacitor-community/intercom/compare/v7.0.3...v7.1.0) (2025-08-21)
+
+
+### Bug Fixes
+
+* make typescript-eslint dev dependency ([#125](https://github.com/capacitor-community/intercom/issues/125)) ([b0e8438](https://github.com/capacitor-community/intercom/commit/b0e84386d7f2b9856382d09e50b82c210860d2ed))
+
 ### [7.0.3](https://github.com/capacitor-community/intercom/compare/v7.0.2...v7.0.3) (2025-02-05)
 
 ### [7.0.2](https://github.com/capacitor-community/intercom/compare/v7.0.1...v7.0.2) (2025-02-04)
