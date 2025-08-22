@@ -7,7 +7,30 @@ import Intercom
  * here: https://capacitorjs.com/docs/plugins/ios
  */
 @objc(IntercomPlugin)
-public class IntercomPlugin: CAPPlugin {
+public class IntercomPlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "IntercomPlugin" 
+    public let jsName = "Intercom" 
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "loadWithKeys", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "registerIdentifiedUser", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "registerUnidentifiedUser", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "updateUser", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "logout", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "logEvent", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "displayMessenger", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "displayMessageComposer", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "displayHelpCenter", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "hideMessenger", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "displayLauncher", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "hideLauncher", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "displayInAppMessages", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "hideInAppMessages", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "displayCarousel", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "setUserHash", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "setUserJwt", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "setBottomPadding", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "displayArticle", returnType: CAPPluginReturnPromise),
+    ] 
     private var observers: [NSObjectProtocol] = []
 
     override public func load() {
