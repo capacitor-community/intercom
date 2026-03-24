@@ -26,6 +26,7 @@
 
 | Capacitor | Intercom iOS | Intercom Android | iOS Target | Android Target |
 | --------- | ------------ | ---------------- | ---------- | -------------- |
+| 8.x       | 18.x         | 17.x             | 15.0       | 36             |
 | 7.x       | 18.x         | 15.x             | 15.0       | 35             |
 | 6.x       | 16.x         | 12.x             | 13.0       | 34             |
 
@@ -60,7 +61,7 @@ import { PushNotifications } from '@capacitor/push-notifications';
 // Register for push notifications from Intercom
 PushNotifications.register();
 
-// Register an indetified user
+// Register an identified user
 Intercom.registerIdentifiedUser({ userId: 123456 });
 Intercom.registerIdentifiedUser({ email: 'test@example.com' });
 Intercom.registerIdentifiedUser({ userId: 123456, email: 'test@example.com' });
@@ -84,7 +85,7 @@ Intercom.setUserJwt({ jwt: 'xyz' });
 
 - `ionic start my-cap-app --capacitor`
 - `cd my-cap-app`
-- `npm install —-save @capacitor-community/intercom`
+- `npm install @capacitor-community/intercom`
 - `mkdir www && touch www/index.html`
 - `npx cap add ios`
 - add intercom keys to capacitor's configuration file
@@ -111,7 +112,7 @@ Intercom.setUserJwt({ jwt: 'xyz' });
 
 - `ionic start my-cap-app --capacitor`
 - `cd my-cap-app`
-- `npm install —-save @capacitor-community/intercom`
+- `npm install @capacitor-community/intercom`
 - `mkdir www && touch www/index.html`
 - `npx cap add android`
 - add intercom keys to capacitor's configuration file
@@ -518,7 +519,7 @@ We're starting fresh under an official org. If you were using the previous npm p
 -            add(IntercomPlugin.class);
 -        }});
 -    }
- }
+}
 ```
 
 ## License
