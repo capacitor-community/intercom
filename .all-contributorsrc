@@ -162,6 +162,13 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/128741423?v=4",
       "profile": "https://github.com/vtorenaintermedia",
       "contributions": ["code"]
+    },
+    {
+      "login": "coicoronado",
+      "name": "coicoronado",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12240216?v=4",
+      "profile": "https://github.com/coicoronado",
+      "contributions": ["maintenance"]
     }
   ],
   "contributorsPerLine": 7

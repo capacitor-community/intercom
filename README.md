@@ -12,7 +12,7 @@
   <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/dw/@capacitor-community/intercom?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@capacitor-community/intercom"><img src="https://img.shields.io/npm/v/@capacitor-community/intercom?style=flat-square" /></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors"><img src="https://img.shields.io/badge/all%20contributors-22-orange?style=flat-square" /></a>
+<a href="#contributors"><img src="https://img.shields.io/badge/all%20contributors-23-orange?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
@@ -568,6 +568,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vtorenaintermedia"><img src="https://avatars.githubusercontent.com/u/128741423?v=4?s=75" width="75px;" alt="vtorenaintermedia"/><br /><sub><b>vtorenaintermedia</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=vtorenaintermedia" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/coicoronado"><img src="https://avatars.githubusercontent.com/u/12240216?v=4?s=75" width="75px;" alt="coicoronado"/><br /><sub><b>coicoronado</b></sub></a><br /><a href="#maintenance-coicoronado" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
