@@ -33,6 +33,9 @@
   "peerDependencies": {
     "@capacitor/core": ">=8.0.0"
   },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "devDependencies": {
     "@capacitor/android": "^8.0.0",
     "@capacitor/cli": "^8.0.0",
