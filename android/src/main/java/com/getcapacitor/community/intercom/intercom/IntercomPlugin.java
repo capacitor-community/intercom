@@ -70,7 +70,8 @@ public class IntercomPlugin extends Plugin {
                     public void run() {
                         //We also initialize intercom here just in case it has died. If Intercom is already set up, this won't do anything.
                         setUpIntercom();
-                        Intercom.client().handlePushMessage();
+                        // Note: handlePushMessage() was removed in Intercom Android SDK 18.0.0.
+                        // The SDK now opens the relevant conversation directly when a push notification is tapped.
                     }
                 }
             );

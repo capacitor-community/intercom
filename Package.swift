@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "8.0.0"),
-        .package(url: "https://github.com/intercom/intercom-ios-sp.git", from: "18.0.0")
+        .package(url: "https://github.com/intercom/intercom-ios-sp.git", from: "19.6.3")
     ],
     targets: [
         .target(
