@@ -57,6 +57,7 @@ public class IntercomPlugin extends Plugin {
 
         // load parent
         super.load();
+        call.resolve();
     }
 
     @Override
