@@ -38,7 +38,8 @@ public class IntercomPlugin extends Plugin {
     private static final String EVENT_WINDOW_DID_HIDE = "windowDidHide";
 
     private final IntercomPushClient intercomPushClient = new IntercomPushClient();
-
+    
+    private volatile boolean isIntercomInitialized = false;
     @Override
     public void load() {
         // Set up Intercom
@@ -50,14 +51,38 @@ public class IntercomPlugin extends Plugin {
 
     @PluginMethod
     public void loadWithKeys(PluginCall call) {
-        String appId = call.getString("appId", "NO_APP_ID_PASSED");
-        String apiKey = call.getString("apiKeyAndroid", "NO_API_KEY_PASSED");
+        String appId = call.getString("appId");
+        String apiKey = call.getString("apiKeyAndroid");
 
-        Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
+        if (appId == null || appId.isEmpty() || apiKey == null || apiKey.isEmpty()) {
+            Logger.error("Intercom", "ERROR: loadWithKeys() called without a valid appId/apiKeyAndroid");
+            // load parent
+            super.load();
+            call.reject("loadWithKeys() requires both appId and apiKeyAndroid");
+            return;
+        }
+        
+        Exception initError = null;
 
+        try {
+            Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
+            isIntercomInitialized = true;
+        } catch (Exception e) {
+            isIntercomInitialized = false;
+            Logger.error("Intercom", "ERROR: Something went wrong when initializing Intercom with provided keys", e);
+            initError = e;
+        }
         // load parent
         super.load();
-        call.resolve();
+
+        if (isIntercomInitialized) {
+            call.resolve();
+        } else {
+            call.reject("Failed to initialize Intercom", initError);
+        }
+        
+       
+       
     }
 
     @Override
@@ -71,6 +96,11 @@ public class IntercomPlugin extends Plugin {
                     public void run() {
                         //We also initialize intercom here just in case it has died. If Intercom is already set up, this won't do anything.
                         setUpIntercom();
+                        if (!isIntercomInitialized) {
+                            Logger.error("Intercom", "Skipping handlePushMessage — Intercom is not initialized");
+                            return;
+                        }
+                        
                         Intercom.client().handlePushMessage();
                     }
                 }
@@ -274,15 +304,27 @@ public class IntercomPlugin extends Plugin {
     }
 
     private void setUpIntercom() {
+        if(isIntercomInitialized){
+            return;
+        }
         try {
             // get config
             CapConfig config = this.bridge.getConfig();
             String apiKey = config.getPluginConfiguration("Intercom").getString("androidApiKey");
             String appId = config.getPluginConfiguration("Intercom").getString("androidAppId");
+            
+            // check if keys are omitted, possibly calling loadWithKeys later
+            if (apiKey == null || apiKey.isEmpty() || appId == null || appId.isEmpty()) {
+                Logger.warn("Intercom", "WARN: androidApiKey/androidAppId missing from capacitor config, assuming the plugin method loadWithKeys() will be called, skipping Intercom.initialize()");
+                isIntercomInitialized = false;
+                return;
+            }
 
             // init intercom sdk
             Intercom.initialize(this.getActivity().getApplication(), apiKey, appId);
+            isIntercomInitialized = true;
         } catch (Exception e) {
+            isIntercomInitialized = false;
             Logger.error("Intercom", "ERROR: Something went wrong when initializing Intercom. Check your configurations", e);
         }
     }
