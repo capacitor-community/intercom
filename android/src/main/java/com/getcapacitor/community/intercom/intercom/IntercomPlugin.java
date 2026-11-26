@@ -62,18 +62,16 @@ public class IntercomPlugin extends Plugin {
     @Override
     public void handleOnStart() {
         super.handleOnStart();
-        bridge
-            .getActivity()
-            .runOnUiThread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        //We also initialize intercom here just in case it has died. If Intercom is already set up, this won't do anything.
-                        setUpIntercom();
-                        Intercom.client().handlePushMessage();
-                    }
+        bridge.getActivity().runOnUiThread(
+            new Runnable() {
+                @Override
+                public void run() {
+                    //We also initialize intercom here just in case it has died. If Intercom is already set up, this won't do anything.
+                    setUpIntercom();
+                    Intercom.client().handlePushMessage();
                 }
-            );
+            }
+        );
     }
 
     @Override

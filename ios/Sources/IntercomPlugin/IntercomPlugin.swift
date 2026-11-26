@@ -8,8 +8,8 @@ import Intercom
  */
 @objc(IntercomPlugin)
 public class IntercomPlugin: CAPPlugin, CAPBridgedPlugin {
-    public let identifier = "IntercomPlugin" 
-    public let jsName = "Intercom" 
+    public let identifier = "IntercomPlugin"
+    public let jsName = "Intercom"
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "loadWithKeys", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "registerIdentifiedUser", returnType: CAPPluginReturnPromise),
@@ -29,8 +29,8 @@ public class IntercomPlugin: CAPPlugin, CAPBridgedPlugin {
         CAPPluginMethod(name: "setUserHash", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "setUserJwt", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "setBottomPadding", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "displayArticle", returnType: CAPPluginReturnPromise),
-    ] 
+        CAPPluginMethod(name: "displayArticle", returnType: CAPPluginReturnPromise)
+    ]
     private var observers: [NSObjectProtocol] = []
 
     override public func load() {
